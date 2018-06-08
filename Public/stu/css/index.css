@@ -1,0 +1,55 @@
+.index_body {
+	background-color: #99d6c2;
+}
+
+.box {
+	margin: 230px 0 0 0;
+}
+
+.header h3{
+	text-align: center;
+	font-size: 40px;
+	color: #fff;
+}
+
+.content {
+	margin-top: 100px;
+}
+
+
+.admin_login a {
+	display: block;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 auto;
+	font-size: 16px;
+	color: #fff;
+	border: 4px solid #fff;
+	border-radius: 5px;
+}
+
+.admin_login a:hover {
+	border: 4px solid #bc2931;
+}
+
+.stu_login {
+	margin-top: 10px;
+}
+
+.stu_login a:hover {
+	border: 4px solid #bc2931;
+}
+
+.stu_login a {
+	display: block;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 auto;
+	font-size: 16px;
+	color: #fff;
+	border: 4px solid #fff;
+	border-radius: 5px;
+}
+

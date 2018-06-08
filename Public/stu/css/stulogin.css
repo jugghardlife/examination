@@ -1,0 +1,70 @@
+
+body {
+	background-color: #99d6c2;
+}
+
+.stulogin_box {
+	margin: 230px 0 0 0;
+}
+
+.stulogin_header h3{
+	text-align: center;
+	font-size: 40px;
+	color: #fff;
+}
+
+.stulogin_content {
+	margin-top: 100px;
+}
+
+.stulogin_input span{
+	color: #fff;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+.stulogin_psw {
+	margin-top: 10px;
+}
+
+.stulogin_username input,.stulogin_psw input
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background-color: transparent;
+	padding: 2px 4px;
+	color: #fff;
+}
+
+input::-webkit-input-placeholder {
+ 	 /* placeholder颜色  */
+	color: #fff;
+	/* placeholder字体大小  */
+	font-size: 14px;
+}
+
+
+.stulogin_but {
+	margin-top: 60px;
+}
+
+.stulogin_but button {
+	background-color: #fff;
+	outline: none;
+	border: none;
+	width: 80px;
+	height: 40px;
+	border-radius: 5px;
+	color: #4d7b6c;
+}
+
+.stulogin_but button:hover{
+	border: 2px solid #4d7b6c;
+	font-weight: 600;
+	cursor:pointer
+}
+
+.stulogin_back {
+	margin-left: 50px;
+}
