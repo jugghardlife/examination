@@ -6,23 +6,4 @@ class IndexController extends Controller {
     public function index(){
     	$this->display();
     }
-
-    public function stulogin()
-    {
-    	$this->display();
-    }
-
-    public function userlogin()
-    {
-    	$userinfo=I();
-    	//file_put_contents('1.php',$userinfo);
-    	// dump($userinfp);
-    	$this->ajaxReturn($userinfo);
-    }
-
-    public function stuchoose()
-    {
-    	$this->display();
-    }
-
 }

@@ -242,3 +242,668 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000421s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000462s ]
 
+[ 2018-06-08T14:13:32+08:00 ] ::1 /examination/index.php/Home/stu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000437s ]
+ERR: 无法加载控制器:Stu
+
+[ 2018-06-08T14:13:48+08:00 ] ::1 /examination/index.php/admin/stu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000723s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000475s ]
+ERR: 无法加载控制器:Stu
+
+[ 2018-06-08T14:13:51+08:00 ] ::1 /examination/index.php/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000400s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000432s ]
+
+[ 2018-06-08T14:14:01+08:00 ] ::1 /examination/index.php/admin/Waha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000391s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000424s ]
+
+[ 2018-06-08T14:14:59+08:00 ] ::1 /examination/index.php/Home/Waha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000342s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000372s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000347s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000378s ]
+
+[ 2018-06-08T14:15:25+08:00 ] ::1 /examination/index.php/Home/Stu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000345s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000375s ]
+
+[ 2018-06-08T14:15:57+08:00 ] ::1 /examination/index.php/Home/Stu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000438s ]
+ERR: 非法操作:index
+
+[ 2018-06-08T14:16:05+08:00 ] ::1 /examination/index.php/Home/Stu/stulogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+ERR: 模板不存在:./examination/Home/View/Stu/stulogin.html
+
+[ 2018-06-08T14:16:51+08:00 ] ::1 /examination/index.php/Home/Stu/stulogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000029s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000063s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004130s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004163s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000177s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000201s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000389s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000416s ]
+
+[ 2018-06-08T14:17:01+08:00 ] ::1 /examination/index.php/Home/Stu/stuchoose
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000025s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000061s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003538s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003571s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000154s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000347s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2018-06-08T14:17:22+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000052s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003598s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003630s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000174s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000198s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000389s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000415s ]
+
+[ 2018-06-08T14:17:23+08:00 ] ::1 /examination/index.php/Home/Index/stulogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000403s ]
+ERR: 非法操作:stulogin
+
+[ 2018-06-08T14:17:24+08:00 ] ::1 /examination/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000374s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000122s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003759s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003793s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000135s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000159s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000345s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2018-06-08T14:17:36+08:00 ] ::1 /examination/index.php/Home/Index/stulogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+ERR: 非法操作:stulogin
+
+[ 2018-06-08T14:17:47+08:00 ] ::1 /examination/index.php/Home/Stu/stulogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000346s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000066s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003599s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003633s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000132s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000156s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000345s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2018-06-08T14:17:49+08:00 ] ::1 /examination/index.php/Home/Stu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+ERR: 非法操作:index
+
+[ 2018-06-08T14:17:49+08:00 ] ::1 /examination/index.php/Home/Waha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000342s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000375s ]
+ERR: 无法加载控制器:Waha
+
+[ 2018-06-08T14:17:50+08:00 ] ::1 /examination/index.php/Home/Stu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+ERR: 非法操作:index
+
+[ 2018-06-08T14:17:52+08:00 ] ::1 /examination/index.php/Home/Stu/stuchoose
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003771s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003813s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000156s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000182s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000383s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000414s ]
+
+[ 2018-06-08T14:17:53+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000361s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000027s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000074s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004078s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004115s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000163s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000190s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000359s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000385s ]
+
+[ 2018-06-08T14:17:54+08:00 ] ::1 /examination/index.php/Home/Stu/stulogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003714s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003745s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000134s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000157s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000407s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000437s ]
+
+[ 2018-06-08T14:17:58+08:00 ] ::1 /examination/index.php/Home/Stu/stulogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000383s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000034s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000072s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003671s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003720s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000179s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000204s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000404s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000437s ]
+
+[ 2018-06-08T14:17:58+08:00 ] ::1 /examination/index.php/Home/Stu/stulogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000370s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000029s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000065s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003501s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003532s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000129s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000340s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000367s ]
+
+[ 2018-06-08T14:18:47+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000392s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000056s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003431s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003464s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000132s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000157s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000346s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000372s ]
+
+[ 2018-06-08T14:18:50+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000064s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003847s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003882s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000140s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000167s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000381s ]
+
+[ 2018-06-08T14:18:50+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000025s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000063s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003449s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003481s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000154s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000382s ]
+
+[ 2018-06-08T14:18:52+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000307s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000402s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003725s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003757s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000138s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000164s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000361s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000387s ]
+
+[ 2018-06-08T14:18:54+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000437s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000056s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003785s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003818s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000195s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000393s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000419s ]
+
+[ 2018-06-08T14:18:54+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000053s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003341s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003372s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000343s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000367s ]
+
+[ 2018-06-08T14:18:55+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000438s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000058s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003370s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003406s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000153s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000179s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000351s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000376s ]
+
+[ 2018-06-08T14:19:09+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000258s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000436s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000057s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003719s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003753s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000393s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000420s ]
+
+[ 2018-06-08T14:19:09+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000346s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000053s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003361s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003392s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000342s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000367s ]
+
+[ 2018-06-08T14:19:09+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000054s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003386s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003419s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000342s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000367s ]
+
+[ 2018-06-08T14:20:49+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000308s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000056s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003457s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003487s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000127s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000151s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000343s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000368s ]
+
+[ 2018-06-08T14:20:51+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000025s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000063s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003576s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003607s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000155s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000345s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000370s ]
+
+[ 2018-06-08T14:21:00+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000057s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003397s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003427s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000153s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000348s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000374s ]
+
+[ 2018-06-08T14:21:21+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000455s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000058s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003758s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003795s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000176s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000200s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000390s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000416s ]
+
+[ 2018-06-08T14:21:24+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000370s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000026s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000062s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003476s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003508s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000164s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000357s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000382s ]
+
+[ 2018-06-08T14:21:30+08:00 ] ::1 /examination/index.php/home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000455s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000497s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000034s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000089s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004330s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004376s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000250s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000431s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000462s ]
+
+[ 2018-06-08T14:21:35+08:00 ] ::1 /examination/index.php/Home/Stu/stulogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000343s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000374s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000028s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000061s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003461s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003492s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000127s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000149s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000343s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000367s ]
+

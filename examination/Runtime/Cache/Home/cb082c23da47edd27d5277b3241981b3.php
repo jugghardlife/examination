@@ -18,7 +18,7 @@
 				</a>
 			</div>
 			<div class="stu_login">
-				<a href="<?php echo U('Index/stulogin');?>">
+				<a href="<?php echo U('Stu/stulogin');?>">
 					学生登录
 				</a>
 			</div>
