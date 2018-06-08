@@ -20,4 +20,14 @@ class StuController extends Controller {
     {
     	$this->display();
     }
+
+    public function fill()
+    {
+        $this->display();
+    }
+
+    public function see()
+    {
+        $this->display();
+    }
 }
