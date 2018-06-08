@@ -24,28 +24,82 @@
 				<div>姓名:<span>周立峰</span></div>
 				<div>学号:<span>2018060811</span></div>
 				<div>班级:<span>待定</span></div>
-				<div>排名:<span>1</span></div>
+				<div class="see_content_top_last">排名:<span>1</span></div>
 			</div>
 			<div class="see_content_bottom">
-				<div>
-					<div>科目成绩:<span>100</span></div>
-					<div>科目成绩:<span>100</span></div>
+				<div class="see_content_bottom_big">
+					<div class="see_content_bottom_small">
+						<div>
+							科目成绩:	
+						</div>
+						<div>
+							100
+						</div>
+					</div>
+					<div class="see_content_bottom_small">
+						<div>
+							科目成绩:	
+						</div>
+						<div>
+							100
+						</div>
+					</div>
 				</div>
-				<div>
-					<div>科目成绩:<span>100</span></div>
-					<div>科目成绩:<span>100</span></div>
+				<div class="see_content_bottom_big">
+					<div class="see_content_bottom_small">
+						<div>
+							科目成绩:	
+						</div>
+						<div>
+							100
+						</div>
+					</div>
+					<div class="see_content_bottom_small">
+						<div>
+							科目成绩:	
+						</div>
+						<div>
+							100
+						</div>
+					</div>
 				</div>
-				<div>
-					<div>科目成绩:<span>100</span></div>
-					<div>科目成绩:<span>100</span></div>
+				<div class="see_content_bottom_big">
+					<div class="see_content_bottom_small">
+						<div>
+							科目成绩:	
+						</div>
+						<div>
+							100
+						</div>
+					</div>
+					<div class="see_content_bottom_small">
+						<div>
+							科目成绩:	
+						</div>
+						<div>
+							100
+						</div>
+					</div>
 				</div>
-				<div>
-					<div>志愿A:<span>应用化工技术（国际化）</span></div>
-					<div>志愿B:<span>应用化工技术</span></div>
+				<div class="see_content_bottom_big">
+					<div class="see_content_bottom_small">
+						<div>志愿A:</div>
+						<div>应用化工技术（国际化）</div>
+					</div>
+					<div class="see_content_bottom_small">
+						<div>志愿B:</div>
+						<div>应用化工技术</div>
+					</div>
 				</div>
-				<div>
-					<div>志愿C:<span>工业分析技术</span></div>
-					<div>志愿D:<span>化工装备技术</span></div>
+				<div class="see_content_bottom_big">
+					<div class="see_content_bottom_small">
+						<div>志愿C:</div>
+						<div>工业分析技术</div>
+					</div>
+					<div class="see_content_bottom_small">
+						<div>志愿D:</div>
+						<div>化工装备技术</div>
+					</div>
 				</div>
 			</div>
 		</div>
