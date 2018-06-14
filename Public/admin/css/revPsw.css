@@ -1,0 +1,52 @@
+body {
+	background-color: #99d6c2;
+}
+
+.revPsw_box {
+	margin: 230px 0 0 0;
+}
+
+.stuScore_header h3{
+	text-align: center;
+	font-size: 40px;
+	color: #fff;
+}
+
+.revPsw_content {
+	width: 600px;
+	margin: 50px auto 0;
+}
+
+.revPsw_ind {
+	display: flex;
+}
+
+.revPsw_content span {
+	display: block;
+	width: 100px;
+	overflow: hidden;
+	text-align: left;
+	font-size: 16px;
+	color: #fff;
+	font-weight: 600;
+	line-height: 40px;
+	margin-left: 150px;
+}
+
+.revPsw_ind input {
+	height: 30px;
+	width: 200px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	border-bottom: 1px solid #fff;
+	padding: 0 6px;
+	color: #fff;
+}
+
+input::-webkit-input-placeholder {
+ 	 /* placeholder颜色  */
+	color: #fff;
+	/* placeholder字体大小  */
+	font-size: 14px;
+}

@@ -14,12 +14,12 @@
 		</div>
 		<div class="content">
 			<div class="admin_login">
-				<a href="">
+				<a href="<?php echo U('Admin/Index/adminLogin');?>">
 					管理员登录
 				</a>
 			</div>
 			<div class="stu_login">
-				<a href="<?php echo U('Stu/stulogin');?>">
+				<a href="<?php echo U('Stu/stuLogin');?>">
 					学生登录
 				</a>
 			</div>

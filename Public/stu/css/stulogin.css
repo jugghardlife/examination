@@ -41,6 +41,7 @@ input::-webkit-input-placeholder {
  	 /* placeholder颜色  */
 	color: #fff;
 	/* placeholder字体大小  */
+	padding-left:2px;
 	font-size: 14px;
 }
 

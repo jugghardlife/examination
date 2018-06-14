@@ -1,0 +1,90 @@
+
+.stuScore_body {
+	background-color: #99d6c2;
+}
+
+.stuScore_box {
+	margin: 230px 0 0 0;
+}
+
+.stuScore_header h3{
+	text-align: center;
+	font-size: 40px;
+	color: #fff;
+}
+
+.stuScore_content {
+	width: 600px;
+	margin: 50px auto 0;
+}
+
+.stuScore_content_top {
+	display: flex;
+	flex-direction: row;
+}
+
+.stuScore_content_top div {
+	width: calc((600px - 7px)/6);
+	border-left: 1px solid #fff;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	line-height: 42px;
+	color: #fff;
+	font-size: 16px;
+}
+
+.stuScore_content_top_last {
+	border-right: 1px solid #fff;
+}
+
+.stuScore_content_details {
+	display: flex;
+	flex-direction: row;
+}
+
+.stuScore_content_details div {
+	width: calc((600px - 7px)/6);
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	line-height: 42px;
+	color: #fff;
+	font-size: 16px;
+}
+
+
+.pages {
+	margin-top: 20px;
+}
+.pages{float: right}
+.pages a,.pages span {
+    display:inline-block;
+    padding:2px 10px;
+    border:1px solid #f0f0f0;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    font-size: 14px;
+}
+.pages a,.pages li {
+
+    display:inline-block;
+    list-style: none;
+    text-decoration:none; 
+    color:#fff;
+}
+.pages a.first,.pages a.prev,.pages a.next,.pages a.end{
+    margin:0 auto;
+}
+.pages a:hover{
+    border-color:#fff;
+}
+.pages span.current{
+    background:#50A8E6;
+    color:#FFF;
+    font-weight:700;
+    border-color:#fff;
+}
+
+.stulogin_but .stulogin_back{
+	margin-left: 500px;
+}

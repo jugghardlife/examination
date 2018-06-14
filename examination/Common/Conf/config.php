@@ -7,5 +7,5 @@ return array(
 	'DB_PWD'=>'root',
 	'DB_NAME'=>'examination',
 	'DB_PORT'=>3306,
-	'DB_PREFIX'=>'examination_',
+	'DB_PREFIX'=>'exa_',
 );

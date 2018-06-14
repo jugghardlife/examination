@@ -1,0 +1,23 @@
+.see_content_top_num {
+	display: flex;
+	height: 42px;	
+}
+
+.see_content_top_num span{
+	width: 60px;
+}
+
+.see_content_top_num input 	{
+	height: 23px;
+	width: 60%;
+	margin: auto;
+}
+
+.see_content_top div {
+	width: calc((600px - 4px)/3);
+}
+
+.see_content_bottom input {
+	width: 80%;
+	padding: 2px 4px;
+}

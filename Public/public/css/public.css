@@ -54,3 +54,46 @@ a:active {color: #bc2931;}*/
 	font-size: 14px;
 	margin-left: 2px;
 }
+
+
+
+.stulogin_but {
+	margin-top: 20px;
+}
+
+.stulogin_but button {
+	background-color: #fff;
+	outline: none;
+	border: none;
+	width: 80px;
+	height: 40px;
+	border-radius: 5px;
+	color: #4d7b6c;
+}
+
+.stulogin_but button:hover{
+	border: 2px solid #4d7b6c;
+	font-weight: 600;
+	cursor:pointer
+}
+
+.stulogin_back {
+	margin-left: 50px;
+}
+
+.top_back {
+	display: flex;
+	justify-content:space-between;
+}
+
+.top_back a {
+	display: block;
+	padding: 6px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	background-color: #50A8E6;
+	color: #fff;
+	border-radius: 2px;
+	font-size: 12px;
+	cursor:pointer
+}

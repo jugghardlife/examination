@@ -1,0 +1,131 @@
+body {
+	background-color: #99d6c2;
+}
+
+.fill_box {
+	margin: 230px 0 0 0;
+}
+
+
+.fill_header h3{
+	text-align: center;
+	font-size: 40px;
+	color: #fff;
+}
+
+.fill_content {
+	width: 600px;
+	margin: 50px auto 0;
+}
+
+.fill_content_top {
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+}	
+
+.fill_name {
+	width: calc((600px - 4px)/3);
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-top: 1px solid #fff;
+	line-height: 40px;
+	overflow: hidden;
+}
+
+.fill_stunum {
+	width: calc((600px - 4px)/3);
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-top: 1px solid #fff;
+	line-height: 40px;
+	overflow: hidden;
+}
+
+
+.fill_class {
+	width: calc((600px - 4px)/3);
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	line-height: 40px;
+	overflow: hidden;
+}
+
+.fill_first,.fill_second,.fill_third,.fill_fourth
+{
+	display: flex;
+	border:1px solid #fff;
+	line-height: 40px;
+}
+
+.fill_vol_text {
+	width: calc((600px - 4px)/3);
+	border-right: 1px solid #fff;
+	color: #fff;
+	font-size: 16px;
+}
+
+.fill_vol_select {
+	width: calc((600px - 4px)/3*2);
+}
+
+.fill_vol_select select {
+	width: 100%;
+	padding: 4px;
+	outline: none;
+	border: none;
+	background-color: #99d6c2;
+	height: 100%;
+	color: #fff;
+	font-size: 16px;
+}
+
+.fill_vol_select select option {
+	text-align: center;
+	font-size: 16px;
+}
+
+.fill_content_bottom {
+	border:1px solid #fff;
+	display: flex;
+	justify-content:center;
+	height: 50px;
+}
+
+
+.fill_submit {
+	width: calc((600px - 4px)/2);
+	border-right: 1px solid #fff;
+}
+
+
+.fill_cancel {
+	width: calc((600px - 4px)/2);
+}
+
+.fill_content_bottom button {
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border: none;
+	background-color: #2f8acc;
+	font-size: 16px;
+	color: #fff;
+}
+
+.fill_content_bottom button:hover {
+	cursor:pointer;
+	background-color: #0095ff;
+}
+

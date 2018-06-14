@@ -1,0 +1,47 @@
+body {
+	background-color: #99d6c2;
+}
+
+.classInt_box {
+	margin: 230px 0 0 0;
+}
+
+
+.classInt_header h3{
+	text-align: center;
+	font-size: 40px;
+	color: #fff;
+}
+
+.classInt_content {
+	width: 600px;
+	margin: 50px auto 0;
+}
+
+.classInt_content_top span {
+	color: #fff;
+	font-size: 16px;
+	display: block;
+	width: 100px;
+	margin-left: 150px;
+	text-align: left;
+}
+
+.classInt_content_top select {
+	background-color: #fff;
+	height: 30px;
+	width: 200px;
+}
+
+.classInt_class {
+	display: flex;
+}
+
+.classInt_data {
+	display: flex;
+	margin-top: 20px;
+}
+
+.stulogin_but {
+	margin-top: 80px;
+}

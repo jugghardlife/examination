@@ -45,7 +45,6 @@
 }
 
 .see_content_bottom_small {
-	width: calc((600px - 5px)/2);
 	display: flex;
 	border-bottom: 1px solid #fff;
 }
@@ -53,4 +52,15 @@
 .see_content_bottom_small div{
 	width: calc((600px - 5px)/4);
 	border-left: 1px solid #fff;
+	line-height: 42px;
+	font-size: 12px;
+	color: #fff;
 }
+
+.see_last {
+	border-right: 1px solid #fff;
+}
+
+.stulogin_but .stulogin_back{
+	margin-left: 500px;
+}   

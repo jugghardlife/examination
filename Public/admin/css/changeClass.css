@@ -1,0 +1,76 @@
+.stuScore_content {
+	width: 1300px;
+}
+
+.stuScore_content_top div{
+	width: calc((1300px - 14px)/13)
+}
+
+.stuScore_content_details div{
+	width: calc((1300px - 14px)/13)
+}
+
+.stuScore_content_top_last {
+	display: flex;
+}
+
+.stuScore_content_top_last .change_btn {
+	border: none;
+}
+
+.stuScore_content_top_last .del_btn {
+	border: none;
+}
+
+.change_select {
+	display: flex;
+	justify-content:space-between;
+}
+
+.change_select_info {
+	display: flex;
+}
+
+.change_select_info span {
+	line-height: 38px;
+	width: 100px;
+}
+
+.change_select  span{
+	color: #fff;
+	font-size: 16px;
+	display: block;
+}
+
+.class_num {
+	display: flex;
+	margin-left: -100px;
+	margin-right: 30px;
+	width: 100px;
+	color: red;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+.class_num p {
+	margin: 2px 0 0 4px;
+}
+
+.top_back {
+	margin-top: 10px;
+}
+
+.stuScore_content_top .change_ope {
+	border-right: 1px solid #fff;
+}
+
+.stuScore_content_top_last a{
+	background-color: #50A8E6;
+    color: #fff;
+    border-radius: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 5px;
+}

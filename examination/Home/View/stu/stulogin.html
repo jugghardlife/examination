@@ -5,7 +5,7 @@
 	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<title>学生登录主页面</title>
 	<link rel="stylesheet" href="__PUBLIC__/public/css/public.css">
-	<link rel="stylesheet" href="__PUBLIC__/stu/css/stulogin.css">
+	<link rel="stylesheet" href="__PUBLIC__/stu/css/stuLogin.css">
 	<script src="__PUBLIC__/public/js/jq.js"></script>
 </head>
 <body>
@@ -17,7 +17,7 @@
 			<div class="stulogin_input">
 				<div class="stulogin_username">
 					<span>账户:</span>
-					<input ntype="text" class="stulogin_username_input" onKeyUp="value=value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'')" placeholder="请输入您的学号" maxlength="15">
+					<input type="text" class="stulogin_username_input" onKeyUp="value=value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'')" placeholder="请输入您的学号" maxlength="15">
 				</div>
 				<div class="stulogin_psw">
 					<span>密码:</span>
@@ -33,28 +33,39 @@
 
 
 	<script>
-		$(".stulogin_in").click(function()
+		$(".stulogin_in").click(function(e)
 		{	
+			e.preventDefault();
 			if(null==$(".stulogin_username_input").val()||""==$(".stulogin_username_input").val())
 			{
-				console.log("学号为空")
+				alert("学号为空")
 				return;
 			}
 			else if(null==$(".stulogin_psw_input").val()||""==$(".stulogin_psw_input").val())
 			{
-				console.log("密码为空")
+				alert("密码为空")
 				return;
 			}
+			var stulogin_username_input=$(".stulogin_username_input").val();
+			var stulogin_psw_input=$(".stulogin_psw_input").val();
+
 			$.ajax({
-				url: "{:U('Index/userlogin')}",
+				url: "{:U('Home/Stu/userlogin')}",
 				data: {
 						'username': $(".stulogin_username_input").val(),
-						'psw':$(".stulogin_psw_input").val()
+						'pass':$(".stulogin_psw_input").val()
 					  },
 				dataType : 'json', 
 				type: 'post',
 				success: function (data) {
 					console.log(data)
+					if(1==data.status)
+					{
+						window.location.href="{:U('Home/Stu/stuChoose')}";
+					}else if(0==data.status)
+					{
+						alert("密码错误");
+					}
 				},
 				error: function (XmlHttpRequest) {
 					alert(XmlHttpRequest.status);
