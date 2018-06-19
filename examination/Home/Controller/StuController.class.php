@@ -16,17 +16,26 @@ class StuController extends Controller {
         //$map['pass']=md5($_POST['pass']);
         $map['stuPsw']=$_POST['pass'];
         $res=$user->where($map)->find();
+        // $str = var_export($res,TRUE);
+        // file_put_contents("1.php",$str);
+        // die(); 
         if($res==null){
             $this->error("用户名密码错误");
         }else{
-            session("username",$res['stuName']);
+            // session("username",$res['stuName']);
+             $sessions = array('username'=>$res['stuName'], 'stuNum'=>$res['stuNum']);
+            session("sessions",$sessions);
+            //  $str = var_export($sessions,TRUE);
+            // file_put_contents("1.php",$str);
+            // die(); 
+            // json_encode("1");
             $this->success("登录成功");
         }
     }
 
     public function stuChoose()
     {
-        if(!($_SESSION['username'])){
+        if(!($_SESSION['sessions']['stuNum'])){
             // redirect('Stu/stuLogin', 0, '页面跳转中...');
             $this->redirect('Stu/stuLogin', 0);
         }
@@ -35,26 +44,51 @@ class StuController extends Controller {
 
     public function fill()
     {
-        if(!($_SESSION['username'])){
+        if(!($_SESSION['sessions']['stuNum'])){
             // redirect('Stu/stuLogin', 0, '页面跳转中...');
             $this->redirect('Stu/stuLogin', 0);
         }
+        $stu = M('stu');
+        $map['stuNum']= $_SESSION['sessions']['stuNum'];
+        $res=$stu->where($map)->find();
+        // $str = var_export($res,TRUE);
+        // file_put_contents("1.php",$str);
+        // die(); 
+        $this->assign('stu',$res);
         $this->display();
+    }
+
+    public function stu_fill()
+    {
+        $stu = M('stu');
+        $where["stuNum"] = I("stuNum");
+        $data["stuVola"] = I("stuVola");
+        $data["stuVolb"] = I("stuVolb");
+        $data["stuVolc"] = I("stuVolc");
+        $data["stuVold"] = I("stuVold");
+        $stu->where($where)->save($data); 
     }
 
     public function see()
     {
-        if(!($_SESSION['username'])){
+        if(!($_SESSION['sessions']['stuNum'])){
             // redirect('Stu/stuLogin', 0, '页面跳转中...');
             $this->redirect('Stu/stuLogin', 0);
         }
+        $stu = M('stu');
+        $map['stuNum']= $_SESSION['sessions']['stuNum'];
+        $res=$stu->where($map)->find();
+        $this->assign('stu',$res);
+        // $str = var_export($res,TRUE);
+        // file_put_contents("1.php",$str);
+        // die(); 
         $this->display();
     }
 
 
     public function stuScore()
     {
-        if(!($_SESSION['username'])){
+        if(!($_SESSION['sessions']['stuNum'])){
             // redirect('Stu/stuLogin', 0, '页面跳转中...');
             $this->redirect('Stu/stuLogin', 0);
         }
@@ -74,7 +108,7 @@ class StuController extends Controller {
 
     public function revPsw()
     {
-        if(!($_SESSION['username'])){
+        if(!($_SESSION['sessions']['stuNum'])){
             // redirect('Stu/stuLogin', 0, '页面跳转中...');
             $this->redirect('Stu/stuLogin', 0);
         }

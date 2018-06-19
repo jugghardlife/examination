@@ -1,1 +1,21 @@
-Uploads/2018-06-14/5b2236593bb05.xls
+array (
+  'Id' => '285',
+  'stuR' => '5',
+  'stuPsw' => '123',
+  'stuName' => '5',
+  'stuClass' => '',
+  'stuNum' => '20180623',
+  'stuS1' => '100',
+  'stuS2' => '100',
+  'stuS3' => '100',
+  'stuS4' => '100',
+  'stuS5' => '100',
+  'stuS6' => '100',
+  'stuVola' => '1',
+  'stuVolb' => '2',
+  'stuVolc' => '3',
+  'stuVold' => '4',
+  'stuTot' => '600',
+  'stuAverage' => '100',
+  'stuDate' => '2018-06-19',
+)

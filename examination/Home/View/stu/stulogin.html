@@ -26,7 +26,7 @@
 			</div>
 			<div class="stulogin_but">
 				<button class="stulogin_in">登录</button>
-				<button class="stulogin_back" onClick="javascript :history.back(-1);">返回</button>
+				<button class="stulogin_back" onClick="stulogin_back();">返回</button>
 			</div>
 		</div>
 	</div>
@@ -48,7 +48,8 @@
 			}
 			var stulogin_username_input=$(".stulogin_username_input").val();
 			var stulogin_psw_input=$(".stulogin_psw_input").val();
-
+			// console.log(stulogin_username_input)
+			// console.log(stulogin_psw_input)
 			$.ajax({
 				url: "{:U('Home/Stu/userlogin')}",
 				data: {
@@ -72,6 +73,11 @@
 				}
 			})
 		})
+
+
+		function stulogin_back(){
+			window.location.href="__ROOT__";
+		}
 	</script>
 </body>
 </html>
