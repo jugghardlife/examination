@@ -23,8 +23,7 @@ class IndexController extends Controller {
         if($res==null){
             $this->error("用户名密码错误");
         }else{
-            $sessions = array('username'=>$res['adminName'], 'stuNum'=>$res['stuNum']);
-            session("sessions",$sessions);
+            session("username",$res["adminName"]);
             json_encode("1");
             $this->success("登录成功");
         }
@@ -49,12 +48,12 @@ class IndexController extends Controller {
         $User = M('Stu');
         //调用count方法查询要显示的数据总记录数
         $count = $User->count();
-        $page = new \Think\Page($count,2);
+        $page = new \Think\Page($count,10);
         // 分页显示输出
         $show = $page->show();
         $this->assign('page',$show);
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $User_list = $User->limit($page->firstRow.','.$page->listRows)->select();
+        $User_list = $User->order('stuR')->limit($page->firstRow.','.$page->listRows)->select();
         $this->assign('doc_list',$User_list);
         
         $this->display();
@@ -93,8 +92,118 @@ class IndexController extends Controller {
             // redirect('Stu/stuLogin', 0, '页面跳转中...');
             $this->redirect('Index/adminLogin', 0);
         }
+
+        $Stu = M('Stu');
+        $map["stuClass"]=1;
+        $res=$Stu->order('stuR')->where($map)->select();
+
+        // $str = var_export($res,TRUE);
+        // file_put_contents("1.php",$str);
+        // die(); 
+        $c=count($res);
+        $this->assign('doc_list',$res);
+        $this->assign('c',$c);
         $this->display();
     }
+
+    public function clasaInfo(){
+        if(!($_SESSION['username'])){
+            // redirect('Stu/stuLogin', 0, '页面跳转中...');
+            $this->redirect('Index/adminLogin', 0);
+        }
+
+        $Stu = M('Stu');
+        $map["stuClass"]=I("change_select_val");
+
+        $res=$Stu->order('stuR')->where($map)->select();
+
+        // $str = var_export($res,TRUE);
+        // file_put_contents("1.php",$str);
+        // die();
+        $this->ajaxReturn($res, 'JSON');
+    }
+
+    public function see_btn(){
+        if(!($_SESSION['username'])){
+            // redirect('Stu/stuLogin', 0, '页面跳转中...');
+            $this->redirect('Index/adminLogin', 0);
+        }
+        $Stu = M('Stu');
+        $map["stuNum"]=I("see_btn_val");
+        $res=$Stu->where($map)->find();
+        $this->ajaxReturn($res, 'JSON');
+        // $str = var_export($map,TRUE);
+        // file_put_contents("1.php",$str);
+        // die();
+    }
+
+    public function del_btn(){
+        if(!($_SESSION['username'])){
+            // redirect('Stu/stuLogin', 0, '页面跳转中...');
+            $this->redirect('Index/adminLogin', 0);
+        }
+        $Stu = M('Stu');
+        $map["stuNum"]=I("del_num");
+        $res=$Stu->where($map)->delete();
+        $this->ajaxReturn($res, 'JSON');
+    }
+
+
+    public function expClass()
+    {   
+        $m = M ('Stu');
+        $map["stuClass"]=$_GET['stuClass']; 
+        $data = $m->order('stuR')->where($map)->field('stuR,stuNum,stuName,stuClass,stuS1,stuS2,stuS3,stuS4,stuS5,stuS6,stuVola,stuVolb,stuVolc,stuVold,stuTot,stuAverage')->select();
+
+        import("Org.Util.PHPExcel");
+        import("Org.Util.PHPExcel.Writer.Excel5");
+        import("Org.Util.PHPExcel.IOFactory.php");
+        $filename="test_excel";
+        $headArr=array("排名","学号","姓名","班级","成绩1","成绩2","成绩3","成绩4","成绩5","成绩6","志愿A","志愿B","志愿C","志愿D","总成绩","平均分");
+        $this->getExcel($filename,$headArr,$data);
+        // $str = var_export($data,TRUE);
+        // file_put_contents("1.php",$str);
+        // die();
+    }
+
+    public function addStudentA(){
+        $this->display();
+    }
+
+    public function addStuA(){
+
+
+        $stu = M ('Stu');
+        $map["stuClass"]=I("stuClass");
+        $data["stuName"]=I("stuName");
+        $data["stuClass"]=I("stuClass");
+        $data["stuNum"]=I("stuNum");
+        $data["stuS1"]=I("stuS1");
+        $data["stuS2"]=I("stuS2");
+        $data["stuS3"]=I("stuS3");
+        $data["stuS4"]=I("stuS4");
+        $data["stuS5"]=I("stuS5");
+        $data["stuS6"]=I("stuS6");
+        $data["stuVola"]=I("stuVola");
+        $data["stuVolb"]=I("stuVolb");
+        $data["stuVolc"]=I("stuVolc");
+        $data["stuVold"]=I("stuVold");
+        $data["stuTot"]=I("stuS6")+I("stuS1");+I("stuS2");+I("stuS3");+I("stuS4");+I("stuS5");;
+        $data["stuAverage"]=$data["stuTot"]/6;
+        $data["stuDate"]=date("Y-m-d H:i:s");
+        $num=$stu->where($map)->select();
+        $stuNum=count($num);
+        $data["stuR"]=$stuNum+1;
+        $res=$stu->add($data);
+        if($res)
+        {
+           $this->success('添加成功');
+        }
+        // $str = var_export($data,TRUE);
+        // file_put_contents("1.php",$str);
+        // die();
+    }
+
 
     public function impAllStu()
     {
@@ -134,7 +243,7 @@ class IndexController extends Controller {
             }         
 
                 
-                echo "<h3>".$filePath."文件上传成功！</h3><p>";  
+                echo "文件上传成功！";  
                 //上传成功则开始导入到mysql中  
                 $result=$this->importExcel($filePath);  
                 echo $result['message'];     
@@ -162,7 +271,7 @@ class IndexController extends Controller {
             $item['stuNum']=$sheet1->getCellByColumnAndRow(2,$i)->getValue();  
             $item['stuPsw']=$sheet1->getCellByColumnAndRow(3,$i)->getValue();  
             $item['stuName']=$sheet1->getCellByColumnAndRow(4,$i)->getValue();  
-            $item['stuClass']='';  
+            $item['stuClass']=$sheet1->getCellByColumnAndRow(5,$i)->getValue();  
             $item['stuS1']=$sheet1->getCellByColumnAndRow(6,$i)->getValue();  
             $item['stuS2']=$sheet1->getCellByColumnAndRow(7,$i)->getValue();  
             $item['stuS3']=$sheet1->getCellByColumnAndRow(8,$i)->getValue();  
@@ -190,8 +299,8 @@ class IndexController extends Controller {
             }  
         }  
        
-        echo "<h3>总{$sum}条，成功{$success}条，失败{$error}条</h3>";      
-        return array("error"=>0,'message'=>'import is succussful!');  
+        echo "总{$sum}条，成功{$success}条，失败{$error}条";      
+        return array("error"=>0);  
     }  
 
     public function expUser(){

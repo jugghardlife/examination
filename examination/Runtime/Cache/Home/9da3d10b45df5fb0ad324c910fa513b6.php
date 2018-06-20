@@ -1,7 +1,8 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<title>学生成绩排行</title>
 	<link rel="stylesheet" href="/examination/Public/stu/css/stuScore.css">
 	<link rel="stylesheet" href="/examination/Public/public/css/public.css">
@@ -32,7 +33,15 @@
 				<div>总分</div>
 				<div class="stuScore_content_top_last">平均分</div>
 			</div>
-			<div class="stuScore_content_details">
+			<?php if(is_array($doc_list)): $i = 0; $__LIST__ = $doc_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="stuScore_content_details">
+					<div><?php echo ($vo["stuR"]); ?></div>
+					<div><?php echo ($vo["stuR"]); ?></div>
+					<div><?php echo ($vo["stuNum"]); ?></div>
+					<div><?php echo ($vo["stuName"]); ?></div>
+					<div><?php echo ($vo["stuTot"]); ?></div>
+					<div class="stuScore_content_top_last"><?php echo ($vo["stuAverage"]); ?></div>
+				</div><?php endforeach; endif; else: echo "" ;endif; ?>
+			<!-- <div class="stuScore_content_details">
 				<div>1</div>
 				<div>1</div>
 				<div>2018061101</div>
@@ -71,7 +80,7 @@
 				<div>周立峰</div>
 				<div>100</div>
 				<div class="stuScore_content_top_last">100</div>
-			</div>
+			</div> -->
 			<tfoot>
 				<!--分页显示？-->
 				<tr>

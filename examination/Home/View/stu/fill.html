@@ -20,7 +20,7 @@
 	</div>
 	<div class="fill_box">
 		<div class="fill_header">
-			<h3>学生主页</h3>
+			<h3>学生填报志愿</h3>
 		</div>
 		<div class="fill_content">
 			<div class="fill_content_top">
@@ -126,10 +126,13 @@
 					console.log(data)
 					if(1==data.status)
 					{
+						alert("提交成功");
 						window.location.href="{:U('Home/Stu/stuChoose')}";
+						return;
 					}else if(0==data.status)
 					{
-						alert("密码错误");
+						alert("提交失败");
+						return;
 					}
 				},
 				error: function (XmlHttpRequest) {

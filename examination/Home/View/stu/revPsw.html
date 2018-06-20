@@ -23,19 +23,19 @@
 		<div class="revPsw_content">
 			<div class="revPsw_ind">
 				<span>学号:</span>
-				<input type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'')" placeholder="请输入您的学号" maxlength="15">
+				<input type="text" onKeyUp="value=value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'')" placeholder="请输入您的学号" maxlength="15" class="stuNum">
 			</div>
 			<div class="revPsw_ind">
 				<span>旧密码:</span>
-				<input type="password"  placeholder="请输入您的密码" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onkeyup="value=value.replace(/[^\w\/]/ig,'')" maxlength="15">
+				<input type="password"  placeholder="请输入您的密码" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onkeyup="value=value.replace(/[^\w\/]/ig,'')" maxlength="15" class="oldPsw">
 			</div>
 			<div class="revPsw_ind">
 				<span>新密码:</span>
-				<input type="password"  placeholder="请输入您的密码" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onkeyup="value=value.replace(/[^\w\/]/ig,'')" maxlength="15">
+				<input type="password"  placeholder="请输入您的密码" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onkeyup="value=value.replace(/[^\w\/]/ig,'')" maxlength="15" class="newPsw">
 			</div>
 			<div class="revPsw_ind">
 				<span>新密码确认:</span>
-				<input type="password"  placeholder="请输入您的密码" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onkeyup="value=value.replace(/[^\w\/]/ig,'')" maxlength="15">
+				<input type="password"  placeholder="请输入您的密码" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onkeyup="value=value.replace(/[^\w\/]/ig,'')" maxlength="15" class="newPswR">
 			</div>
 		</div>
 		<div class="stulogin_but">
@@ -61,6 +61,63 @@
 				}
 			})
 		}
+	</script>
+	<script>
+		$(".stulogin_in").click(function(e){
+			e.preventDefault();
+			if(null==$(".stuNum").val()||""==$(".stuNum").val())
+			{
+				alert("学号不能为空")
+				return;
+			}
+			else if(null==$(".oldPsw").val()||""==$(".oldPsw").val())
+			{
+				alert("老密码不能为空")
+				return;
+			}
+			else if(null==$(".newPsw").val()||""==$(".newPsw").val())
+			{
+				alert("新密码不能为空")
+				return;
+			}
+			else if(null==$(".newPswR").val()||""==$(".newPswR").val())
+			{
+				alert("确认密码不能为空")
+				return;
+			}
+			else if($(".newPsw").val()!=$(".newPswR").val())
+			{
+				alert("新密码不相同")
+				return;
+			}
+			var stuNum=$(".stuNum").val();
+			var oldPsw=$(".oldPsw").val();
+			var newPsw=$(".newPsw").val();
+			var newPswR=$(".newPswR").val();
+			$.ajax({
+				url: "{:U('Home/Stu/modPsw')}",
+				data: {
+						'stuNum': stuNum,
+						'oldPsw':oldPsw,
+						'newPsw':newPsw,
+						'newPswR':newPswR,
+					  },
+				dataType : 'json', 
+				type: 'post',
+				success: function (data) {
+					console.log(data)
+					if(0==data.status)
+					{
+						alert("密码错误");
+						return;
+					}
+				},
+				error: function (XmlHttpRequest) {
+					alert(XmlHttpRequest.status);
+					return;
+				}
+			})
+		})
 	</script>
 </body>
 </html>

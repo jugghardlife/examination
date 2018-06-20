@@ -24,7 +24,15 @@
 			<div class="see_content_top">
 				<div>姓名:<span><?php echo ($stu["stuName"]); ?></span></div>
 				<div>学号:<span><?php echo ($stu["stuNum"]); ?></span></div>
-				<div>班级:<span>待定</span></div>
+				<div>班级:
+					<span>待定</span>
+
+					<!-- <?php if($stu['stuVolb'] == 1): ?><div class="see_last">应用化工技术（国际化）</div>
+			            <?php elseif($stu['stuVolb'] == 2): ?><div class="see_last">应用化工技术</div>
+			            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">工业分析技术</div>
+			            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">化工装备技术</div>
+			            <?php else: ?> <div>未填报</div><?php endif; ?> -->
+				</div>
 				<div class="see_content_top_last">排名:<span><?php echo ($stu["stuR"]); ?></span></div>
 			</div> 
 			<div class="see_content_bottom">
@@ -86,10 +94,11 @@
 					<div class="see_content_bottom_small">
 						<div>志愿A</div>
 						<!-- <div>应用化工技术（国际化）</div> -->
-						<?php if($stu['stuVola'] == 1): ?><div>应用化工技术（国际化）</div>
-				            <?php elseif($stu['stuVola'] == 2): ?><div>应用化工技术</div>
-				            <?php elseif($stu['stuVola'] == 3): ?><div>工业分析技术</div>
-				            <?php else: ?> <div>化工装备技术</div><?php endif; ?>
+						<?php if($stu['stuVolb'] == 1): ?><div class="see_last">应用化工技术（国际化）</div>
+				            <?php elseif($stu['stuVolb'] == 2): ?><div class="see_last">应用化工技术</div>
+				            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">工业分析技术</div>
+				            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">化工装备技术</div>
+				            <?php else: ?> <div>未填报</div><?php endif; ?>
 					</div>
 					<div class="see_content_bottom_small">
 						<div>志愿B</div>
@@ -97,25 +106,28 @@
 						<?php if($stu['stuVolb'] == 1): ?><div class="see_last">应用化工技术（国际化）</div>
 				            <?php elseif($stu['stuVolb'] == 2): ?><div class="see_last">应用化工技术</div>
 				            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">工业分析技术</div>
-				            <?php else: ?> <div class="see_last">化工装备技术</div><?php endif; ?>
+				            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">化工装备技术</div>
+				            <?php else: ?> <div class="see_last">未填报</div><?php endif; ?>
 					</div>
 				</div>
 				<div class="see_content_bottom_big">
 					<div class="see_content_bottom_small">
 						<div>志愿C</div>
 						<!-- <div>工业分析技术</div> -->
-						<?php if($stu['stuVolc'] == 1): ?><div>应用化工技术（国际化）</div>
-				            <?php elseif($stu['stuVolc'] == 2): ?><div>应用化工技术</div>
-				            <?php elseif($stu['stuVolc'] == 3): ?><div>工业分析技术</div>
-				            <?php else: ?> <div>化工装备技术</div><?php endif; ?>
+						<?php if($stu['stuVolb'] == 1): ?><div class="see_last">应用化工技术（国际化）</div>
+				            <?php elseif($stu['stuVolb'] == 2): ?><div class="see_last">应用化工技术</div>
+				            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">工业分析技术</div>
+				            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">化工装备技术</div>
+				            <?php else: ?> <div>未填报</div><?php endif; ?>
 					</div>
 					<div class="see_content_bottom_small">
 						<div>志愿D</div>
 						<!-- <div class="see_last">化工装备技术</div> -->
-						<?php if($stu['stuVold'] == 1): ?><div class="see_last">应用化工技术（国际化）</div>
-				            <?php elseif($stu['stuVold'] == 2): ?><div class="see_last">应用化工技术</div>
-				            <?php elseif($stu['stuVold'] == 3): ?><div class="see_last">工业分析技术</div>
-				            <?php else: ?> <div class="see_last">化工装备技术</div><?php endif; ?>
+						<?php if($stu['stuVolb'] == 1): ?><div class="see_last">应用化工技术（国际化）</div>
+				            <?php elseif($stu['stuVolb'] == 2): ?><div class="see_last">应用化工技术</div>
+				            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">工业分析技术</div>
+				            <?php elseif($stu['stuVolb'] == 3): ?><div class="see_last">化工装备技术</div>
+				            <?php else: ?> <div class="see_last">未填报</div><?php endif; ?>
 					</div>
 				</div>
 			</div>

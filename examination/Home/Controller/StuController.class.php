@@ -67,6 +67,10 @@ class StuController extends Controller {
         $data["stuVolc"] = I("stuVolc");
         $data["stuVold"] = I("stuVold");
         $stu->where($where)->save($data); 
+        if($stu)
+        {
+            $this->success('提交成功');
+        }
     }
 
     public function see()
@@ -95,14 +99,15 @@ class StuController extends Controller {
         $User = M('Stu');
         //调用count方法查询要显示的数据总记录数
         $count = $User->count();
-        $page = new \Think\Page($count,2);
+        $page = new \Think\Page($count,10);
         // 分页显示输出
         $show = $page->show();
         $this->assign('page',$show);
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $User_list = $User->limit($page->firstRow.','.$page->listRows)->select();
+        $User_list = $User->order('stuR')->limit($page->firstRow.','.$page->listRows)->select();
 
         $this->assign('doc_list',$User_list);
+        // dump($User_list);
         $this->display();
     }
 
@@ -113,6 +118,28 @@ class StuController extends Controller {
             $this->redirect('Stu/stuLogin', 0);
         }
         $this->display();
+    }
+
+    public function modPsw()
+    {
+        //$test =I();
+        $stu = M('stu');
+        $map = array();
+        $map['stuNum']=$_POST['stuNum'];
+        //$map['pass']=md5($_POST['pass']);
+        $map['stuPsw']=$_POST['oldPsw'];
+        $res=$stu->where($map)->find();
+        if(!$res)
+        {
+            $this->error('密码错误');
+        }
+        $res['stuPsw']=$_POST['newPsw'];
+
+        $flag=$stu->where($map)->save($res);
+        if($flag){
+            session(null);
+            $this->success('退出成功！跳转中...',U('Home/Stu/stuLogin'));
+        }
     }
 
      public function stuLogout(){

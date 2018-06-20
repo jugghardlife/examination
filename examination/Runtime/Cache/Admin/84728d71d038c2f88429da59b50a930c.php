@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>班级信息</title>
-	<link rel="stylesheet" href="__PUBLIC__/admin/css/stuScore.css">
-	<link rel="stylesheet" href="__PUBLIC__/admin/css/adminScore.css">
-	<link rel="stylesheet" href="__PUBLIC__/admin/css/changeClass.css">
-	<link rel="stylesheet" href="__PUBLIC__/public/css/public.css">
-	<link rel="stylesheet" href="__PUBLIC__/stu/css/see.css">
-	<script src="__PUBLIC__/public/js/jq.js"></script>
+	<link rel="stylesheet" href="/examination/Public/admin/css/stuScore.css">
+	<link rel="stylesheet" href="/examination/Public/admin/css/adminScore.css">
+	<link rel="stylesheet" href="/examination/Public/admin/css/changeClass.css">
+	<link rel="stylesheet" href="/examination/Public/public/css/public.css">
+	<link rel="stylesheet" href="/examination/Public/stu/css/see.css">
+	<script src="/examination/Public/public/js/jq.js"></script>
 </head>
 <body class="stuScore_body">
 	<div class="stuScore_bgc"></div>
 	<div class="stuScore_del_bgc">
 		<div class="stuScore_del_img">
-			<img src="__PUBLIC__/public/images/取消.svg" alt="">
+			<img src="/examination/Public/public/images/取消.svg" alt="">
 		</div>
 		<div class="stuScore_del_btn">
 			<div class="stuScore_del_sub">
@@ -28,7 +28,7 @@
 	<div class="content_top">
 		<div></div>
 		<div class="content_top_content">
-			<div class="username"><span>管理員：</span><p>{$Think.session.username}</p></div>
+			<div class="username"><span>管理員：</span><p><?php echo (session('username')); ?></p></div>
 			<div class="user_exit" onclick="adminLogout()"><span><?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1528439492800" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1051" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12"><defs><style type="text/css"></style></defs><path d="M511.5 548.3c-10.3 0-18.6-8.3-18.6-18.6V82.6c0-10.3 8.3-18.6 18.6-18.6s18.6 8.3 18.6 18.6v447.1c0 10.3-8.3 18.6-18.6 18.6z" fill="#fd0000" p-id="1052"></path><path d="M511.5 959c-247 0-447.9-200.1-447.9-446 0-149.8 74.9-288.7 200.3-371.7 8.6-5.7 20.1-3.3 25.8 5.3 5.7 8.6 3.3 20.1-5.3 25.8-115 76.1-183.6 203.4-183.6 340.7 0 225.4 184.2 408.8 410.6 408.8S922.1 738.4 922.1 513c0-136.1-67.8-262.9-181.3-339.1-8.5-5.7-10.8-17.3-5.1-25.9 5.7-8.5 17.3-10.8 25.9-5.1 123.8 83.2 197.8 221.5 197.8 370-0.1 246-201 446.1-447.9 446.1z" fill="#fd0000" p-id="1053"></path></svg></span><button >注销</button></div>
 		</div>
 	</div>
@@ -52,14 +52,14 @@
 				</div>
 				<div class="class_num">
 					<span>人数:</span>
-					<p>{$c}</p>
+					<p><?php echo ($c); ?></p>
 				</div>
 			</div>
 			<div class="top_back">
 				<div></div>
 				<div class="stuScore_adminsScore">
-					<a href="{:U('Admin/index/expClass?stuClass=1')}" class="expClass">导出班級数据</a>
-					<a href="{:U('Index/addStudentA')}">新增</a>
+					<a href="<?php echo U('Admin/index/expClass?stuClass=1');?>" class="expClass">导出班級数据</a>
+					<a href="<?php echo U('Index/addStudentA');?>">新增</a>
 					<a onClick="javascript :history.back(-1);">返回</a>
 				</div>
 			</div>
@@ -81,32 +81,30 @@
 				</div>
 			</div>
 			<div class="stuScore_content_list">
-				<volist name="doc_list" id="vo">
-					<div class="stuScore_content_details" id="{$vo.stuNum}">
-						<div>{$vo.stuR}</div>
-						<div>{$vo.stuR}</div>
-						<div>{$vo.stuNum}</div>
-						<div>{$vo.stuName}</div>
-						<div>{$vo.stuS1}</div>
-						<div>{$vo.stuS2}</div>
-						<div>{$vo.stuS3}</div>
-						<div>{$vo.stuS4}</div>
-						<div>{$vo.stuS5}</div>
-						<div>{$vo.stuS6}</div>
-						<div>{$vo.stuTot}</div>
-						<div>{$vo.stuAverage}</div>
+				<?php if(is_array($doc_list)): $i = 0; $__LIST__ = $doc_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="stuScore_content_details" id="<?php echo ($vo["stuNum"]); ?>">
+						<div><?php echo ($vo["stuR"]); ?></div>
+						<div><?php echo ($vo["stuR"]); ?></div>
+						<div><?php echo ($vo["stuNum"]); ?></div>
+						<div><?php echo ($vo["stuName"]); ?></div>
+						<div><?php echo ($vo["stuS1"]); ?></div>
+						<div><?php echo ($vo["stuS2"]); ?></div>
+						<div><?php echo ($vo["stuS3"]); ?></div>
+						<div><?php echo ($vo["stuS4"]); ?></div>
+						<div><?php echo ($vo["stuS5"]); ?></div>
+						<div><?php echo ($vo["stuS6"]); ?></div>
+						<div><?php echo ($vo["stuTot"]); ?></div>
+						<div><?php echo ($vo["stuAverage"]); ?></div>
 						<div class="stuScore_content_top_last">
-							<div class="see_btn" title="{$vo.stuNum}" onclick="see_btn(this)">
-								<input type="hidden" value="{$vo.stuNum}">
+							<div class="see_btn" title="<?php echo ($vo["stuNum"]); ?>" onclick="see_btn(this)">
+								<input type="hidden" value="<?php echo ($vo["stuNum"]); ?>">
 								<a >查看</a>
 							</div>
-							<div class="del_btn" title="{$vo.stuNum}" onclick="del_btn(this)">
-								<input type="hidden" value="{$vo.stuNum}">
+							<div class="del_btn" title="<?php echo ($vo["stuNum"]); ?>" onclick="del_btn(this)">
+								<input type="hidden" value="<?php echo ($vo["stuNum"]); ?>">
 								<a >删除</a>
 							</div>
 						</div>
-					</div>
-				</volist>
+					</div><?php endforeach; endif; else: echo "" ;endif; ?>
 			</div>
 			<!-- <div class="stuScore_content_details">
 				<div>1</div>
@@ -201,7 +199,7 @@
 			<!-- <tfoot>
 				<tr>
 				   <td textalign="center" cl nowrap="true" colspan="9" height="20">
-				      <div class="pages">{$page}</div>
+				      <div class="pages"><?php echo ($page); ?></div>
 				   </td>
 				</tr>
 			</tfoot> -->
@@ -220,13 +218,13 @@
 		function adminLogout()
 		{
 			$.ajax({
-				url: "{:U('Admin/index/adminLogout')}",
+				url: "<?php echo U('Admin/index/adminLogout');?>",
 				type: 'post',
 				success: function (data) {
 					console.log(data)
 					if(1==data.status)
 					{
-						window.location.href="{:U('Admin/Index/adminLogin')}";
+						window.location.href="<?php echo U('Admin/Index/adminLogin');?>";
 					}
 				},
 				error: function (XmlHttpRequest) {
@@ -239,7 +237,7 @@
 		$(".change_select_val").change(function(){
 			var change_select_val=$(this).val();
 			$.ajax({
-				url: "{:U('Admin/Index/clasaInfo')}",
+				url: "<?php echo U('Admin/Index/clasaInfo');?>",
 				data: {
 						'change_select_val': change_select_val
 					  },
@@ -270,30 +268,30 @@
 		             $(".stuScore_content_list").html(str);
 		             $(".class_num").find("p").html(data.length);
 		             if(1==change_select_val){
-		             	$(".expClass").attr("href","{:U('Admin/index/expClass?stuClass=1')}")
+		             	$(".expClass").attr("href","<?php echo U('Admin/index/expClass?stuClass=1');?>")
 		             }
 		             else if(2==change_select_val)
 		             {
-		             	$(".expClass").attr("href","{:U('Admin/index/expClass?stuClass=2')}")
+		             	$(".expClass").attr("href","<?php echo U('Admin/index/expClass?stuClass=2');?>")
 		             }
 		             else if(3==change_select_val)
 		             {
-		             	$(".expClass").attr("href","{:U('Admin/index/expClass?stuClass=3')}")
+		             	$(".expClass").attr("href","<?php echo U('Admin/index/expClass?stuClass=3');?>")
 		             }
 		             else if(4==change_select_val)
 		             {
-		             	$(".expClass").attr("href","{:U('Admin/index/expClass?stuClass=4')}")
+		             	$(".expClass").attr("href","<?php echo U('Admin/index/expClass?stuClass=4');?>")
 		             }
 		             else if(5==change_select_val)
 		             {
-		             	$(".expClass").attr("href","{:U('Admin/index/expClass?stuClass=5')}")
+		             	$(".expClass").attr("href","<?php echo U('Admin/index/expClass?stuClass=5');?>")
 		             }
 		             
 					return;
 					// if(1==data.status)
 					// {
 					// 	alert("提交成功");
-					// 	window.location.href="{:U('Home/Stu/stuChoose')}";
+					// 	window.location.href="<?php echo U('Home/Stu/stuChoose');?>";
 					// 	return;
 					// }else if(0==data.status)
 					// {
@@ -312,7 +310,7 @@
 			var see_btn_val=$(this).find("input").val();
 			console.log(see_btn_val);
 			$.ajax({
-				url: "{:U('Admin/Index/see_btn')}",
+				url: "<?php echo U('Admin/Index/see_btn');?>",
 				data: {
 						'see_btn_val': see_btn_val
 					  },
@@ -449,7 +447,7 @@
 			e.preventDefault();
 			console.log(del_num)
 			$.ajax({
-				url: "{:U('Admin/Index/del_btn')}",
+				url: "<?php echo U('Admin/Index/del_btn');?>",
 				data: {
 						'del_num': del_num
 					  },
