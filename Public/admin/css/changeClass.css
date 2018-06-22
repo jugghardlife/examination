@@ -137,5 +137,34 @@
 	margin-left: 20px;
 }
 
+.change_class {
+	display: flex;
+}
 
+.change_class span{
+	width: 60px;
+}
 
+.change_class select {
+	width: 80%;
+	height: 30px;
+	margin: auto;
+}
+
+.change_class_btn {
+	margin-top: 10px;
+}
+
+.change_class_btn button {
+	outline: 0;
+	border: 0;
+	background-color: #50A8E6;
+	width: 70px;
+	height: 30px;
+	border-radius: 4px;
+	color: #fff;
+}
+
+.class_btn_right {
+	margin-left: 40px;
+}

@@ -26,7 +26,14 @@
 			<div class="fill_content_top">
 				<div class="fill_name">姓名：<span><?php echo ($stu["stuName"]); ?></span></div>
 				<div class="fill_stunum">学号：<span><?php echo ($stu["stuNum"]); ?></span></div>
-				<div class="fill_class">班级：<span>待定</span></div>
+				<div class="fill_class">班级：
+					<?php if($stu['stuClass'] == 1): ?><span>化工1（国际化）</span>
+			            <?php elseif($stu['stuClass'] == 2): ?><span>化工2</span>
+			            <?php elseif($stu['stuClass'] == 3): ?><span>工分1</span>
+			            <?php elseif($stu['stuClass'] == 4): ?><span>工分2</span>
+			            <?php elseif($stu['stuClass'] == 5): ?><span>装备1</span>
+			            <?php else: ?> <span>未填报</span><?php endif; ?>
+		        </div>
 			</div> 
 			<div class="fill_content_middel">
 				<div class="fill_first">
@@ -102,6 +109,10 @@
 	</script>
 	<script>
 		$(".fill_submit").find("button").click(function(){
+			if($(".fill_class").find("span").html()!="未填报"){
+				alert("已分班");
+				return;
+			}
 			var arr=[$(".fill_first_val").val(),$(".fill_second_val").val(),$(".fill_third_val").val(),$(".fill_fourth_val").val()];
 			for(var i =0;i<arr.length;i++){
 				for(var j=i+1;j<arr.length;j++){
@@ -115,10 +126,10 @@
 				url: "<?php echo U('Home/Stu/stu_fill');?>",
 				data: {
 						'stuNum': $(".stuNum").val(),
-						'stuVola': $(".fill_first_val").val(),
-						'stuVolb': $(".fill_second_val").val(),
-						'stuVolc': $(".fill_third_val").val(),
-						'stuVold': $(".fill_fourth_val").val(),
+						'stuVol1': $(".fill_first_val").val(),
+						'stuVol2': $(".fill_second_val").val(),
+						'stuVol3': $(".fill_third_val").val(),
+						'stuVol4': $(".fill_fourth_val").val(),
 					  },
 				dataType : 'json', 
 				type: 'post',

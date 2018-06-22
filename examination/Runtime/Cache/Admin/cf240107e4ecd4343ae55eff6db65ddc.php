@@ -21,11 +21,11 @@
 			<h3>学生密码重置</h3>
 		</div>
 		<div class="revPsw_content">
-			<div class="revPsw_ind">
+			<div class="revPsw_ind revPsw_ind_1">
 				<span>学号:</span>
-				<input type="text"  placeholder="请输入需要重置的学号" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onkeyup="value=value.replace(/[^\w\/]/ig,'')" maxlength="15">
+				<input type="text"  placeholder="请输入需要重置的学号" onKeyUp="value=value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'')"  maxlength="15">
 			</div>
-			<div class="revPsw_ind">
+			<div class="revPsw_ind revPsw_ind_2">
 				<span>学生姓名:</span>
 				<input type="text" readonly="readonly">
 			</div>
@@ -53,6 +53,69 @@
 				}
 			})
 		}
+	</script>
+	<script>
+		$(".revPsw_ind_1").find("input").blur(function(){
+			var flag=1;
+			if(null==$(this).val()||""==$(this).val())
+			{
+				flag=0;
+				return ;
+			}
+
+			if(flag){
+				var stuNum=$(this).val();
+				$.ajax({
+					url: "<?php echo U('Admin/Index/pswStuInfo');?>",
+					data: {
+							'stuNum': stuNum
+						  },
+					dataType : 'json', 
+					type: 'post',
+					success: function (data) {
+						if(data)
+						{
+							$(".revPsw_ind_2").find("input").val(data.stuName)
+						}
+						else {
+							alert("没有此学号")
+						}
+					},
+					error: function (XmlHttpRequest) {
+						alert(XmlHttpRequest.status);
+					}
+				})
+			}
+			
+
+		})
+		$(".stulogin_in").click(function(){
+			if(null==$(".revPsw_ind_1").find("input").val()||""==$(".revPsw_ind_1").find("input").val())
+			{
+				alert("学号不能为空")
+				return ;
+			}
+			var stuNum=$(".revPsw_ind_1").find("input").val();
+			$.ajax({
+				url: "<?php echo U('Admin/Index/pswStuR');?>",
+				data: {
+						'stuNum': stuNum
+					  },
+				dataType : 'json', 
+				type: 'post',
+				success: function (data) {
+					if(data){
+						alert("重置成功");
+					}else{
+						alert("已经重置")
+					}
+					return ;
+				},
+				error: function (XmlHttpRequest) {
+					alert(XmlHttpRequest.status);
+				}
+			})
+		})
 	</script>
 </body>
 </html>

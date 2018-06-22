@@ -86,6 +86,52 @@ class IndexController extends Controller {
         $this->display();
     }
 
+    public function pswStuInfo()
+    {
+        if(!($_SESSION['username'])){
+            // redirect('Stu/stuLogin', 0, '页面跳转中...');
+            $this->redirect('Index/adminLogin', 0);
+        }
+        $Stu = M('Stu');
+        $map["stuNum"]=I("stuNum");
+        $res=$Stu->where($map)->find();
+        $this->ajaxReturn($res, 'JSON');
+    }
+
+    public function pswStuR()
+    {
+        if(!($_SESSION['username'])){
+            // redirect('Stu/stuLogin', 0, '页面跳转中...');
+            $this->redirect('Index/adminLogin', 0);
+        }
+        $Stu = M('Stu');
+        $map["stuNum"]=I("stuNum");
+        $data["stuPsw"]="123";
+        $res=$Stu->where($map)->save($data);
+        $this->ajaxReturn($res, 'JSON');
+    }
+
+    public function modPsw()
+    {
+        $admin = M('admin');
+        $map = array();
+        $map['adminName']=$_POST['stuNum'];
+        //$map['pass']=md5($_POST['pass']);
+        $map['adminPsw']=$_POST['oldPsw'];
+        $res=$admin->where($map)->find();
+        if(!$res)
+        {
+            $this->error('密码错误');
+        }
+        $res['adminPsw']=$_POST['newPsw'];
+
+        $flag=$admin->where($map)->save($res);
+        if($flag){
+            session(null);
+            $this->success('退出成功！跳转中...');
+        }
+    }
+
     public function changeClass()
     {
         if(!($_SESSION['username'])){
@@ -148,12 +194,28 @@ class IndexController extends Controller {
         $this->ajaxReturn($res, 'JSON');
     }
 
+    public function change_btn(){
+        if(!($_SESSION['username'])){
+            // redirect('Stu/stuLogin', 0, '页面跳转中...');
+            $this->redirect('Index/adminLogin', 0);
+        }
+        $Stu = M('Stu');
+        $map["stuNum"]=I("stuNum");
+        $data["stuClass"]=I("changeClassNum");
+
+        $res=$Stu->where($map)->save($data);
+        if($res){
+            $this->success('修改成功');
+        }
+
+    }
+
 
     public function expClass()
     {   
         $m = M ('Stu');
         $map["stuClass"]=$_GET['stuClass']; 
-        $data = $m->order('stuR')->where($map)->field('stuR,stuNum,stuName,stuClass,stuS1,stuS2,stuS3,stuS4,stuS5,stuS6,stuVola,stuVolb,stuVolc,stuVold,stuTot,stuAverage')->select();
+        $data = $m->order('stuR')->where($map)->field('stuR,stuNum,stuName,stuClass,stuS1,stuS2,stuS3,stuS4,stuS5,stuS6,stuVol1,stuVol2,stuVol3,stuVol4,stuTot,stuAverage')->select();
 
         import("Org.Util.PHPExcel");
         import("Org.Util.PHPExcel.Writer.Excel5");
@@ -184,14 +246,14 @@ class IndexController extends Controller {
         $data["stuS4"]=I("stuS4");
         $data["stuS5"]=I("stuS5");
         $data["stuS6"]=I("stuS6");
-        $data["stuVola"]=I("stuVola");
-        $data["stuVolb"]=I("stuVolb");
-        $data["stuVolc"]=I("stuVolc");
-        $data["stuVold"]=I("stuVold");
+        $data["stuVol1"]=I("stuVola");
+        $data["stuVol2"]=I("stuVolb");
+        $data["stuVol3"]=I("stuVolc");
+        $data["stuVol4"]=I("stuVold");
         $data["stuTot"]=I("stuS6")+I("stuS1");+I("stuS2");+I("stuS3");+I("stuS4");+I("stuS5");;
         $data["stuAverage"]=$data["stuTot"]/6;
         $data["stuDate"]=date("Y-m-d H:i:s");
-        $num=$stu->where($map)->select();
+        $num=$stu->select();
         $stuNum=count($num);
         $data["stuR"]=$stuNum+1;
         $res=$stu->add($data);
@@ -220,7 +282,14 @@ class IndexController extends Controller {
         $this->success('退出成功！跳转中...',U('Admin/Index/stuLogin'));
     }
 
-    public function adminUploadAll(){  
+    public function adminUploadAll(){ 
+        $stu = M ('Stu'); 
+        $flag=count($stu->select());
+        if($flag!=0)
+        {
+            $this->ajaxReturn("4", 'JSON');
+            return ;
+        }
         $upload=new \Think\Upload();                                //实例化上传类  
         $upload->maxSize   =     3145728;                           //设置附件上传大小  
         $upload->exts      =     array('xlsx','xls');               //设置附件上传类型  
@@ -267,24 +336,24 @@ class IndexController extends Controller {
         $rowCount=$sheet1->getHighestRow();//excel行数  
         $data=array();  
         for($i=2;$i<=$rowCount;$i++){  
-            $item['stuR']=$sheet1->getCellByColumnAndRow(1,$i)->getValue();
+            $item['stuR']="";
             $item['stuNum']=$sheet1->getCellByColumnAndRow(2,$i)->getValue();  
             $item['stuPsw']=$sheet1->getCellByColumnAndRow(3,$i)->getValue();  
             $item['stuName']=$sheet1->getCellByColumnAndRow(4,$i)->getValue();  
-            $item['stuClass']=$sheet1->getCellByColumnAndRow(5,$i)->getValue();  
+            $item['stuClass']=0;  
             $item['stuS1']=$sheet1->getCellByColumnAndRow(6,$i)->getValue();  
             $item['stuS2']=$sheet1->getCellByColumnAndRow(7,$i)->getValue();  
             $item['stuS3']=$sheet1->getCellByColumnAndRow(8,$i)->getValue();  
             $item['stuS4']=$sheet1->getCellByColumnAndRow(9,$i)->getValue();  
             $item['stuS5']=$sheet1->getCellByColumnAndRow(10,$i)->getValue();  
             $item['stuS6']=$sheet1->getCellByColumnAndRow(11,$i)->getValue(); 
-            $item['stuVola']=''; 
-            $item['stuVolb']=''; 
-            $item['stuVolc']=''; 
-            $item['stuVold']=''; 
+            $item['stuVol1']=$sheet1->getCellByColumnAndRow(12,$i)->getValue(); 
+            $item['stuVol2']=$sheet1->getCellByColumnAndRow(13,$i)->getValue(); 
+            $item['stuVol3']=$sheet1->getCellByColumnAndRow(14,$i)->getValue(); 
+            $item['stuVol4']=$sheet1->getCellByColumnAndRow(15,$i)->getValue(); 
             $item['stuTot']=$item['stuS1']+$item['stuS2']+$item['stuS3']+$item['stuS4']+$item['stuS5']+$item['stuS6'];  
             $item['stuAverage']=$item['stuTot']/6;  
-            $item['consumption_total']=$sheet1->getCellByColumnAndRow(14,$i)->getValue();        
+            // $item['consumption_total']=$sheet1->getCellByColumnAndRow(14,$i)->getValue();        
             $item['stuDate']=date("Y-m-d H:i:s");
             $data[]=$item;
         }        
@@ -298,6 +367,17 @@ class IndexController extends Controller {
                 $error++;  
             }  
         }  
+
+        $Stu = M ('Stu');
+        $data = $Stu->order('stuAverage DESC')->select();  
+        foreach ($data as $key => $value) 
+        {
+           $data[$key]["stuR"]=($key+1);
+        }
+
+        foreach($data as $k=>$v){  
+            $Stu->data($v)->save();
+        } 
        
         echo "总{$sum}条，成功{$success}条，失败{$error}条";      
         return array("error"=>0);  
@@ -307,7 +387,7 @@ class IndexController extends Controller {
        // $p_name = $_POST['order_p_name'];
         $m = M ('Stu');
        // $datas['order_p_name'] = $p_name;
-        $data = $m->order('stuR')->field('stuR,stuNum,stuName,stuClass,stuS1,stuS2,stuS3,stuS4,stuS5,stuS6,stuVola,stuVolb,stuVolc,stuVold,stuTot,stuAverage')->select();
+        $data = $m->order('stuR')->field('stuR,stuNum,stuName,stuClass,stuS1,stuS2,stuS3,stuS4,stuS5,stuS6,stuVol1,stuVol2,stuVol3,stuVol4,stuTot,stuAverage')->select();
         // foreach ($data as $k => $v)
         // {
         //     $data[$k]['order_time']=date('Y-m-d-H-i-s');
@@ -370,5 +450,335 @@ class IndexController extends Controller {
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
         $objWriter->save('php://output'); //文件通过浏览器下载
         exit;
+    }
+
+    public function divide()
+    {
+        $Stu = M ('Stu');
+        //进行分班
+        for($i=1;$i<5;$i++)
+        {
+            //得到志愿
+            $data1 = $Stu->where("stuVol".$i."=1 AND stuClass=0")->order('stuAverage DESC')->select();
+            $data2 = $Stu->where("stuVol".$i."=2 AND stuClass=0")->order('stuAverage DESC')->select();
+            $data3 = $Stu->where("stuVol".$i."=3 AND stuClass=0")->order('stuAverage DESC')->select();
+            $data5 = $Stu->where("stuVol".$i."=5 AND stuClass=0")->order('stuAverage DESC')->select();
+            //得到志愿的人数
+            $data1Len=count($data1);
+            $data2Len=count($data2);
+            $data3Len=count($data3);
+            $data5Len=count($data5);
+            //查找班级的人数
+            $ClassN1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
+            $ClassN2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
+            $ClassN3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
+            $ClassN5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
+
+            if(24>$ClassN1)//看班级是否分满
+            {
+                if((24-$ClassN1)<$data1Len){//填报志愿人数超过班级的人数
+                    $newData1=array();
+                    $item1=array();
+                    for($i=0;$i<(24-$ClassN1);$i++)
+                    {
+                        $item1[]=$data1[$i];
+                        $item1[$i]["stuClass"]=1;
+                    }
+                    // array_splice($data1,0,(24-$ClassN1));
+                    $newData1=$item1;
+                    
+                    foreach($newData1 as $k=>$v){  
+                        
+                        $Stu->data($v)->save();
+                    } 
+                }
+                else//填报志愿人数没超过班级的人数
+                {
+                    foreach ($data1 as $key => $value) 
+                    {
+                       $data1[$key]["stuClass"]=1;
+                    }
+
+                    foreach($data1 as $k=>$v){  
+                        $Stu->data($v)->save();
+                    } 
+                }
+            }
+
+            if(30>$ClassN2)
+            {
+                if((30-$ClassN2)<$data2Len){
+                    $newData2=array();
+                    $item2=array();
+                    for($i=0;$i<(30-$ClassN2);$i++)
+                    {
+                        $item2[]=$data2[$i];
+                        $item2[$i]["stuClass"]=2;
+                    }
+                    // array_splice($data2,0,(24-$ClassN1));
+                    $newData2=$item2;
+                    
+                    foreach($newData2 as $k=>$v){  
+                        
+                        $Stu->data($v)->save();
+                    } 
+                }
+                else
+                {
+                    foreach ($data2 as $key => $value) 
+                    {
+                       $data2[$key]["stuClass"]=2;
+                    }
+
+                    foreach($data2 as $k=>$v){  
+                        $Stu->data($v)->save();
+                    } 
+                }
+            }
+
+            if(60>$ClassN3)
+            {
+                if((60-$ClassN3)<$data3Len){
+                    $newData3=array();
+                    $item3=array();
+                    for($i=0;$i<(60-$ClassN3);$i++)
+                    {
+                        $item3[]=$data3[$i];
+                        $item3[$i]["stuClass"]=3;
+                    }
+                    // array_splice($data3,0,(60-$ClassN3));
+                    $newData3=$item3;
+                    
+                    foreach($newData3 as $k=>$v){  
+                        
+                        $Stu->data($v)->save();
+                    } 
+                }
+                else
+                {
+                    foreach ($data3 as $key => $value) 
+                    {
+                       $data3[$key]["stuClass"]=3;
+                    }
+
+                    foreach($data3 as $k=>$v){  
+                        $Stu->data($v)->save();
+                    } 
+                }
+            }
+            if(30>$ClassN5)
+            {
+                if((30-$ClassN5)<$data1Len){
+                    $newData5=array();
+                    $item5=array();
+                    for($i=0;$i<(30-$ClassN5);$i++)
+                    {
+                        $item5[]=$data5[$i];
+                        $item5[$i]["stuClass"]=5;
+                    }
+                    // array_splice($data4,0,(30-$ClassN4));
+                    $newData5=$item5;
+                    foreach($newData5 as $k=>$v){  
+                        
+                        $Stu->data($v)->save();
+                    } 
+                }
+                else
+                {
+                    foreach ($data5 as $key => $value) 
+                    {
+                       $data5[$key]["stuClass"]=5;
+                    }
+
+                    foreach($data5 as $k=>$v){  
+                        $Stu->data($v)->save();
+                    } 
+                }
+            }
+            $Class0 = count($Stu->where("stuClass=0")->order('stuAverage DESC')->select());
+            $Class1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
+            $Class2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
+            $Class3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
+            $Class5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
+        }
+
+
+        //处理剩下学生
+        $Class1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
+        $Class2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
+        $Class3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
+        $Class5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
+        $stuFall=$Stu->where("stuClass=0")->order('stuAverage DESC')->select();
+
+        $stuFallLen=count($stuFall);
+        // if($stuFallLen=count($stuFall)!=0)
+        // {
+        //     if(24>$Class1)
+        //     {
+        //         if((24-$Class1)<$stuFallLen){
+        //             $FallnewData1=array();
+        //             $Fallitem1=array();
+        //             for($i=0;$i<(24-$Class1);$i++)
+        //             {
+        //                 $Fallitem1[]=$stuFall[$i];
+        //                 $Fallitem1[$i]["stuClass"]=1;
+        //             }
+        //             array_splice($stuFall,0,(24-$Class1));
+        //             $FallnewData1=$Fallitem1;
+                    
+        //             foreach($FallnewData1 as $k=>$v){  
+                        
+        //                 $Stu->data($v)->save();
+        //             } 
+        //         }
+        //         else
+        //         {
+        //             foreach ($stuFall as $key => $value) 
+        //             {
+        //                $stuFall[$key]["stuClass"]=1;
+        //             }
+
+        //             foreach($stuFall as $k=>$v){  
+        //                 $Stu->data($v)->save();
+        //             } 
+        //         }
+        //     }
+
+        //     if(30>$Class2)
+        //     {
+        //         if((30-$Class2)<$stuFallLen){
+        //             $FallnewData2=array();
+        //             $Fallitem2=array();
+        //             for($i=0;$i<(30-$Class2);$i++)
+        //             {
+        //                 $Fallitem2[]=$stuFall[$i];
+        //                 $Fallitem2[$i]["stuClass"]=2;
+        //             }
+        //             array_splice($stuFall,0,(30-$Class2));
+        //             $FallnewData2=$Fallitem2;
+                    
+        //             foreach($FallnewData2 as $k=>$v){  
+                        
+        //                 $Stu->data($v)->save();
+        //             } 
+        //         }
+        //         else
+        //         {
+        //             foreach ($stuFall as $key => $value) 
+        //             {
+        //                $stuFall[$key]["stuClass"]=2;
+        //             }
+
+        //             foreach($stuFall as $k=>$v){  
+        //                 $Stu->data($v)->save();
+        //             } 
+        //         }
+        //     }
+
+        //     if(60>$Class3)
+        //     {
+        //         if((60-$Class3)<$stuFallLen){
+        //             $FallnewData3=array();
+        //             $Fallitem3=array();
+        //             for($i=0;$i<(60-$Class3);$i++)
+        //             {
+        //                 $Fallitem3[]=$stuFall[$i];
+        //                 $Fallitem3[$i]["stuClass"]=3;
+        //             }
+        //             array_splice($stuFall,0,(60-$Class3));
+        //             $FallnewData3=$Fallitem3;
+                    
+        //             foreach($FallnewData3 as $k=>$v){  
+                        
+        //                 $Stu->data($v)->save();
+        //             } 
+        //         }
+        //         else
+        //         {
+        //             foreach ($stuFall as $key => $value) 
+        //             {
+        //                $stuFall[$key]["stuClass"]=3;
+        //             }
+
+        //             foreach($stuFall as $k=>$v){  
+        //                 $Stu->data($v)->save();
+        //             } 
+        //         }
+        //     }
+
+        //     if(30>$Class5)
+        //     {
+        //         if((30-$Class5)<$stuFallLen){
+        //             $FallnewData5=array();
+        //             $Fallitem5=array();
+        //             for($i=0;$i<(30-$Class5);$i++)
+        //             {
+        //                 $Fallitem5[]=$stuFall[$i];
+        //                 $Fallitem5[$i]["stuClass"]=5;
+        //                 // dump( $Fallitem5[$i]);
+        //             }
+        //             array_splice($stuFall,0,(30-$Class5));
+        //             $FallnewData5=$Fallitem5;
+                    
+        //             foreach($FallnewData5 as $k=>$v){  
+                        
+        //                 $Stu->data($v)->save();
+        //             } 
+        //         }
+        //         else
+        //         {
+        //             foreach ($stuFall as $key => $value) 
+        //             {
+        //                $stuFall[$key]["stuClass"]=5;
+        //             }
+
+        //             foreach($stuFall as $k=>$v){  
+        //                 $Stu->data($v)->save();
+        //             } 
+        //         }
+        //     } 
+        // }
+
+        // $divis4Len = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
+
+        // if(30>$divis4Len){
+        //     $divisClass3=$Stu->where("stuClass=3")->order('stuAverage DESC')->select();
+        //     $divisClass4=array();
+
+        //     $divisItem4=array();
+        //     for($i=0;$i<60;$i=$i+2,$j++)
+        //     {   
+        //         $divisClass3[$i]["stuClass"]=4;
+        //         $divisItem4[]=$divisClass3[$i];
+        //     }
+        //     foreach($divisItem4 as $k=>$v){  
+        //         $Stu->data($v)->save();
+        //     } 
+        // }
+
+        $flag1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
+        $flag2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
+        $flag3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
+        $flag4 = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
+        $flag5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
+
+        // if(24==$flag1 && 30==$flag2 && 30==$flag3 && 30==$flag4 && 30==$flag5){
+        //     $this->success('分班成功');
+        // }
+    }
+    public function delete_data()
+    {
+        $Stu = M ('Stu');
+        $res0=$Stu->where('stuClass=0')->delete();
+        $res1=$Stu->where('stuClass=1')->delete();
+        $res2=$Stu->where('stuClass=2')->delete();
+        $res3=$Stu->where('stuClass=3')->delete();
+        $res4=$Stu->where('stuClass=4')->delete();
+        $res5=$Stu->where('stuClass=5')->delete();
+        if (144<$res0+$res1+$res2+$res3+$res4+$res5) {
+            echo "suecess";
+        }else{
+            echo "error";
+        }
     }
 }

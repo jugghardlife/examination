@@ -27,7 +27,8 @@
 			</div>
 			<div class="stuchoose_content_bottom">
 				<div class="stuchoose_content_bottom_left"><a href="{:U('Index/changeClass')}">查看班级信息</a></div>
-				<div class="stuchoose_content_bottom_right"><a href="{:U('Index/classInt')}">导入班级信息</a></div>
+				<div class="stuchoose_content_bottom_right divide"><a>进行分班</a></div>
+				<!-- href="{:U('Index/classInt')}" -->
 			</div>
 			<div class="stuchoose_content_bottom">
 				<div class="stuchoose_content_bottom_left"><a href="{:U('Index/pswStuA')}">重置学生密码</a></div>
@@ -55,6 +56,27 @@
 				}
 			})
 		}
+	</script>
+	<script>
+		$(".divide").click(function(){
+			$.ajax({
+				url: "{:U('Admin/index/divide')}",
+				type: 'post',
+				success: function (data) {
+					console.log(data)
+					if(1==data.status)
+					{
+						alert("分班成功");
+					}
+					else {
+						alert("已经分班");
+					}
+				},
+				error: function (XmlHttpRequest) {
+					alert(XmlHttpRequest.status);
+				}
+			})
+		})
 	</script>
 </body>
 </html>

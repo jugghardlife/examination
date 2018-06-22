@@ -81,8 +81,8 @@
 				</div>
 			</div>
 			<div class="stuScore_content_list">
-				<?php if(is_array($doc_list)): $i = 0; $__LIST__ = $doc_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="stuScore_content_details" id="<?php echo ($vo["stuNum"]); ?>">
-						<div><?php echo ($vo["stuR"]); ?></div>
+				<?php if(is_array($doc_list)): $k = 0; $__LIST__ = $doc_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?><div class="stuScore_content_details" id="<?php echo ($vo["stuNum"]); ?>">
+						<div><?php echo ($k); ?></div>
 						<div><?php echo ($vo["stuR"]); ?></div>
 						<div><?php echo ($vo["stuNum"]); ?></div>
 						<div><?php echo ($vo["stuName"]); ?></div>
@@ -97,7 +97,7 @@
 						<div class="stuScore_content_top_last">
 							<div class="see_btn" title="<?php echo ($vo["stuNum"]); ?>" onclick="see_btn(this)">
 								<input type="hidden" value="<?php echo ($vo["stuNum"]); ?>">
-								<a >查看</a>
+								<a >修改</a>
 							</div>
 							<div class="del_btn" title="<?php echo ($vo["stuNum"]); ?>" onclick="del_btn(this)">
 								<input type="hidden" value="<?php echo ($vo["stuNum"]); ?>">
@@ -120,7 +120,7 @@
 				<div>100</div>
 				<div>100</div>
 				<div class="stuScore_content_top_last">
-					<div class="see_btn"><a href="">查看</a></div>
+					<div class="see_btn"><a href="">修改</a></div>
 					<div class="del_btn"><a href="">删除</a></div>
 				</div>
 			</div>
@@ -138,7 +138,7 @@
 				<div>100</div>
 				<div>100</div>
 				<div class="stuScore_content_top_last">
-					<div class="see_btn"><a href="">查看</a></div>
+					<div class="see_btn"><a href="">修改</a></div>
 					<div class="del_btn"><a href="">删除</a></div>
 				</div>
 			</div>
@@ -156,7 +156,7 @@
 				<div>100</div>
 				<div>100</div>
 				<div class="stuScore_content_top_last">
-					<div class="see_btn"><a href="">查看</a></div>
+					<div class="see_btn"><a href="">修改</a></div>
 					<div class="del_btn"><a href="">删除</a></div>
 				</div>
 			</div>
@@ -174,7 +174,7 @@
 				<div>100</div>
 				<div>100</div>
 				<div class="stuScore_content_top_last">
-					<div class="see_btn"><a href="">查看</a></div>
+					<div class="see_btn"><a href="">修改</a></div>
 					<div class="del_btn"><a href="">删除</a></div>
 				</div>
 			</div>
@@ -192,7 +192,7 @@
 				<div>100</div>
 				<div>100</div>
 				<div class="stuScore_content_top_last">
-					<div class="see_btn"><a href="">查看</a></div>
+					<div class="see_btn"><a href="">修改</a></div>
 					<div class="del_btn"><a href="">删除</a></div>
 				</div>
 			</div> -->
@@ -260,7 +260,7 @@
 			                	"<div>"+data["stuTot"]+"</div>"+
 			                	"<div>"+data["stuAverage"]+"</div>"+
 			                	"<div class='stuScore_content_top_last'>"+
-			                	"<div class='see_btn' title="+"'"+data["stuNum"]+"'"+"onclick='see_btn(this)'><a>查看</a></div>"+
+			                	"<div class='see_btn' title="+"'"+data["stuNum"]+"'"+"onclick='see_btn(this)'><a>修改</a></div>"+
 			                	"<div class='del_btn' title="+"'"+data["stuNum"]+"'"+"onclick='del_btn(this)'><a>删除</a></div>"+
 			                	"</div>"+
 		                	"</div>";
@@ -306,9 +306,9 @@
 		})
 	</script>
 	<script>
-		function see_btn(){
-			var see_btn_val=$(this).find("input").val();
-			console.log(see_btn_val);
+		function see_btn(obj){
+			var see_btn_val=obj.title;
+			// console.log(see_btn_val);
 			$.ajax({
 				url: "<?php echo U('Admin/Index/see_btn');?>",
 				data: {
@@ -318,7 +318,7 @@
 				type: 'post',
 				success: function (data) {
 					console.log(data)
-					var arr=[data.stuVola,data.stuVolb,data.stuVolc,data.stuVold];
+					var arr=[data.stuVol1,data.stuVol2,data.stuVol3,data.stuVol4];
 					console.log(arr)
 					var strarr=new Array();
 					for(var i=0;i<arr.length;i++){
@@ -361,12 +361,20 @@
 			            		"<div>"+
 			            			data.stuName+"的详情"+
 			            		"</div>"+
-		            			"<div class='see_cancel' onclick='onclick_cancel()'>返回</div>"+
+		            			"<div class='see_cancel' ></div>"+
 		            		"</div>"+
 			            	"<div class='see_content_top'>"+
 			            		"<div>姓名:<span>"+data.stuName+"</span></div>"+
 			            		"<div>学号:<span>"+data.stuNum+"</span></div>"+
-			            		"<div>班级:<span>待定</span></div>"+
+			            		"<div class='change_class'><span>班级:</span>"+
+			            			"<select>"+
+			            				"<option value ='1' class='class1'>应用化工技术（国际化）</option>"+
+			            				"<option value ='2' class='class2'>化工2</option>"+
+			            				"<option value ='3' class='class3'>工分1</option>"+
+			            				"<option value ='4' class='class4'>工分2</option>"+
+			            				"<option value ='5' class='class5'>装备1</option>"+
+			            			"</select>"+
+			            		"</div>"+
 			            		"<div class='see_content_top_last'>排名:<span>"+data.stuR+"</span></div>"
 			            	+"</div>"+
 			            "<div class='see_content_bottom'>"+
@@ -420,7 +428,28 @@
 		            				"<div class='see_last'>"+data.stuS2+"</div>"+
 		            			"</div>"+
 		            		"</div>"+
-			            "</div>"
+			            "</div>"+
+		            	"<div class='change_class_btn'>"+
+		            		"<button class='class_btn_left' onclick='change_sub_btn(this)'>提交"+
+		            			"<input type='hidden' value='"+data.stuNum+"'>"+
+		            		"</button>"+
+		            		"<button class='class_btn_right' onclick='onclick_cancel()'>取消</button>"+
+		            	"</div>"
+			         // if(1==data.stuClass){
+			         // 	console.log($(".class1"))
+			         // }
+			         // else if(2==data.stuClass){
+			         // 	console.log($(".class2"))
+			         // }
+			         // else if(3==data.stuClass){
+			         // 	console.log($(".class3"))
+			         // }
+			         // else if(4==data.stuClass){
+			         // 	console.log($(".class4"))
+			         // }
+			         // else if(5==data.stuClass){
+			         // 	console.log($(".class5"))
+			         // }
 		             $(".stuScore_bgc").html(str);
 		             $(".stuScore_bgc").show();
 					return;
@@ -434,6 +463,41 @@
 	<script>
 		function onclick_cancel(){
 			$(".stuScore_bgc").hide();
+		}
+	</script>
+
+	<script>
+		function change_sub_btn(obj){
+			var stuNum=obj.childNodes[1].value
+
+			var changeClassNum=obj.parentNode.parentNode.childNodes[1].childNodes[2].childNodes[1].value
+			$.ajax({
+				url: "<?php echo U('Admin/Index/change_btn');?>",
+				data: {
+						'changeClassNum': changeClassNum,
+						'stuNum':stuNum
+					  },
+				dataType : 'json', 
+				type: 'post',
+				success: function (data) {
+					console.log(data)
+					if(1==data.status)
+					{
+						alert("修改成功");
+						$("#"+stuNum).hide();
+						$(".stuScore_bgc").hide();
+						return;
+					}
+					else
+					{
+						alert("修改失败");
+						return;
+					}
+				},
+				error: function (XmlHttpRequest) {
+					alert(XmlHttpRequest.status);
+				}
+			})
 		}
 	</script>
 

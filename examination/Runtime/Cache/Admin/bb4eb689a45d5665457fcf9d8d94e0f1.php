@@ -29,6 +29,7 @@
 			</div>
 			<div class="stulogin_but">
 				<button class="stulogin_in">提交</button>
+				<button class="delete_data">删除数据</button>
 				<button class="stulogin_back" onclick="javascript :history.back(-1);">取消</button>
 			</div>
 		</div>
@@ -70,17 +71,40 @@
 		            console.log("正在进行，请稍候");
 		        },
 		        success : function(responseStr) {
-		        	console.log(responseStr);
 		            if(0==responseStr.status){
 		                alert("导入失败");
 		                return;
-		            }else{
-		               	alert(responseStr);
-		               	window.location.href="<?php echo U('Admin/Index/adminChoose');?>";
+		            }else if(4==responseStr){
+		               	alert("数据已导入");
 		                return;
-		            }  
+		            }else {
+		            	alert("导入成功");
+		            	window.location.href="<?php echo U('Admin/Index/adminChoose');?>";
+		            	return;
+		            }
 		        }
-    });
+    		});
+		})
+	</script>
+	<script>
+		$(".delete_data").click(function(e){
+			e.preventDefault();
+			$.ajax({
+		        url : "<?php echo U('Admin/Index/delete_data');?>",
+		        type : 'POST',
+		        async : false,
+		        success : function(responseStr) {
+		        	console.log(responseStr)
+		            if("suecess"==responseStr){
+		                alert("删除成功");
+		                window.location.href="<?php echo U('Admin/Index/adminChoose');?>";
+		                return;
+		            }else{
+		               	alert("删除失败");
+		                return;
+		            }
+		        }
+    		});
 		})
 	</script>
 </body>

@@ -62,10 +62,10 @@ class StuController extends Controller {
     {
         $stu = M('stu');
         $where["stuNum"] = I("stuNum");
-        $data["stuVola"] = I("stuVola");
-        $data["stuVolb"] = I("stuVolb");
-        $data["stuVolc"] = I("stuVolc");
-        $data["stuVold"] = I("stuVold");
+        $data["stuVol1"] = I("stuVol1");
+        $data["stuVol2"] = I("stuVol2");
+        $data["stuVol3"] = I("stuVol3");
+        $data["stuVol4"] = I("stuVol4");
         $stu->where($where)->save($data); 
         if($stu)
         {
