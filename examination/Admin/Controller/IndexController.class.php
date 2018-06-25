@@ -347,10 +347,34 @@ class IndexController extends Controller {
             $item['stuS4']=$sheet1->getCellByColumnAndRow(9,$i)->getValue();  
             $item['stuS5']=$sheet1->getCellByColumnAndRow(10,$i)->getValue();  
             $item['stuS6']=$sheet1->getCellByColumnAndRow(11,$i)->getValue(); 
-            $item['stuVol1']=$sheet1->getCellByColumnAndRow(12,$i)->getValue(); 
-            $item['stuVol2']=$sheet1->getCellByColumnAndRow(13,$i)->getValue(); 
-            $item['stuVol3']=$sheet1->getCellByColumnAndRow(14,$i)->getValue(); 
-            $item['stuVol4']=$sheet1->getCellByColumnAndRow(15,$i)->getValue(); 
+
+            if($sheet1->getCellByColumnAndRow(12,$i)->getValue()){
+                $item['stuVol1']=$sheet1->getCellByColumnAndRow(12,$i)->getValue();
+            }else{
+                $item['stuVol1']=0;
+            }
+
+            if($item['stuVol2']=$sheet1->getCellByColumnAndRow(13,$i)->getValue()){
+                $item['stuVol2']=$sheet1->getCellByColumnAndRow(13,$i)->getValue();
+            }else{
+                $item['stuVol2']=0;
+            }
+
+            if($sheet1->getCellByColumnAndRow(14,$i)->getValue()){
+                $item['stuVol3']=$sheet1->getCellByColumnAndRow(14,$i)->getValue(); 
+            }else{
+                $item['stuVol3']=0;
+            }
+
+            if($sheet1->getCellByColumnAndRow(15,$i)->getValue()){
+                $item['stuVol4']=$sheet1->getCellByColumnAndRow(15,$i)->getValue(); 
+            }else{
+                $item['stuVol4']=0;
+            }
+            // $item['stuVol1']=$sheet1->getCellByColumnAndRow(12,$i)->getValue(); 
+            // $item['stuVol2']=$sheet1->getCellByColumnAndRow(13,$i)->getValue(); 
+            // $item['stuVol3']=$sheet1->getCellByColumnAndRow(14,$i)->getValue(); 
+            // $item['stuVol4']=$sheet1->getCellByColumnAndRow(15,$i)->getValue(); 
             $item['stuTot']=$item['stuS1']+$item['stuS2']+$item['stuS3']+$item['stuS4']+$item['stuS5']+$item['stuS6'];  
             $item['stuAverage']=$item['stuTot']/6;  
             // $item['consumption_total']=$sheet1->getCellByColumnAndRow(14,$i)->getValue();        
@@ -462,7 +486,7 @@ class IndexController extends Controller {
             $data1 = $Stu->where("stuVol".$i."=1 AND stuClass=0")->order('stuAverage DESC')->select();
             $data2 = $Stu->where("stuVol".$i."=2 AND stuClass=0")->order('stuAverage DESC')->select();
             $data3 = $Stu->where("stuVol".$i."=3 AND stuClass=0")->order('stuAverage DESC')->select();
-            $data5 = $Stu->where("stuVol".$i."=5 AND stuClass=0")->order('stuAverage DESC')->select();
+            $data5 = $Stu->where("stuVol".$i."=4 AND stuClass=0")->order('stuAverage DESC')->select();
             //得到志愿的人数
             $data1Len=count($data1);
             $data2Len=count($data2);
@@ -611,150 +635,150 @@ class IndexController extends Controller {
         $stuFall=$Stu->where("stuClass=0")->order('stuAverage DESC')->select();
 
         $stuFallLen=count($stuFall);
-        // if($stuFallLen=count($stuFall)!=0)
-        // {
-        //     if(24>$Class1)
-        //     {
-        //         if((24-$Class1)<$stuFallLen){
-        //             $FallnewData1=array();
-        //             $Fallitem1=array();
-        //             for($i=0;$i<(24-$Class1);$i++)
-        //             {
-        //                 $Fallitem1[]=$stuFall[$i];
-        //                 $Fallitem1[$i]["stuClass"]=1;
-        //             }
-        //             array_splice($stuFall,0,(24-$Class1));
-        //             $FallnewData1=$Fallitem1;
+        if($stuFallLen!=0)
+        {
+            if(24>$Class1)
+            {
+                if((24-$Class1)<$stuFallLen){
+                    $FallnewData1=array();
+                    $Fallitem1=array();
+                    for($i=0;$i<(24-$Class1);$i++)
+                    {
+                        $Fallitem1[]=$stuFall[$i];
+                        $Fallitem1[$i]["stuClass"]=1;
+                    }
+                    array_splice($stuFall,0,(24-$Class1));
+                    $FallnewData1=$Fallitem1;
                     
-        //             foreach($FallnewData1 as $k=>$v){  
+                    foreach($FallnewData1 as $k=>$v){  
                         
-        //                 $Stu->data($v)->save();
-        //             } 
-        //         }
-        //         else
-        //         {
-        //             foreach ($stuFall as $key => $value) 
-        //             {
-        //                $stuFall[$key]["stuClass"]=1;
-        //             }
+                        $Stu->data($v)->save();
+                    } 
+                }
+                else
+                {
+                    foreach ($stuFall as $key => $value) 
+                    {
+                       $stuFall[$key]["stuClass"]=1;
+                    }
 
-        //             foreach($stuFall as $k=>$v){  
-        //                 $Stu->data($v)->save();
-        //             } 
-        //         }
-        //     }
+                    foreach($stuFall as $k=>$v){  
+                        $Stu->data($v)->save();
+                    } 
+                }
+            }
 
-        //     if(30>$Class2)
-        //     {
-        //         if((30-$Class2)<$stuFallLen){
-        //             $FallnewData2=array();
-        //             $Fallitem2=array();
-        //             for($i=0;$i<(30-$Class2);$i++)
-        //             {
-        //                 $Fallitem2[]=$stuFall[$i];
-        //                 $Fallitem2[$i]["stuClass"]=2;
-        //             }
-        //             array_splice($stuFall,0,(30-$Class2));
-        //             $FallnewData2=$Fallitem2;
+            if(30>$Class2)
+            {
+                if((30-$Class2)<$stuFallLen){
+                    $FallnewData2=array();
+                    $Fallitem2=array();
+                    for($i=0;$i<(30-$Class2);$i++)
+                    {
+                        $Fallitem2[]=$stuFall[$i];
+                        $Fallitem2[$i]["stuClass"]=2;
+                    }
+                    array_splice($stuFall,0,(30-$Class2));
+                    $FallnewData2=$Fallitem2;
                     
-        //             foreach($FallnewData2 as $k=>$v){  
+                    foreach($FallnewData2 as $k=>$v){  
                         
-        //                 $Stu->data($v)->save();
-        //             } 
-        //         }
-        //         else
-        //         {
-        //             foreach ($stuFall as $key => $value) 
-        //             {
-        //                $stuFall[$key]["stuClass"]=2;
-        //             }
+                        $Stu->data($v)->save();
+                    } 
+                }
+                else
+                {
+                    foreach ($stuFall as $key => $value) 
+                    {
+                       $stuFall[$key]["stuClass"]=2;
+                    }
 
-        //             foreach($stuFall as $k=>$v){  
-        //                 $Stu->data($v)->save();
-        //             } 
-        //         }
-        //     }
+                    foreach($stuFall as $k=>$v){  
+                        $Stu->data($v)->save();
+                    } 
+                }
+            }
 
-        //     if(60>$Class3)
-        //     {
-        //         if((60-$Class3)<$stuFallLen){
-        //             $FallnewData3=array();
-        //             $Fallitem3=array();
-        //             for($i=0;$i<(60-$Class3);$i++)
-        //             {
-        //                 $Fallitem3[]=$stuFall[$i];
-        //                 $Fallitem3[$i]["stuClass"]=3;
-        //             }
-        //             array_splice($stuFall,0,(60-$Class3));
-        //             $FallnewData3=$Fallitem3;
+            if(60>$Class3)
+            {
+                if((60-$Class3)<$stuFallLen){
+                    $FallnewData3=array();
+                    $Fallitem3=array();
+                    for($i=0;$i<(60-$Class3);$i++)
+                    {
+                        $Fallitem3[]=$stuFall[$i];
+                        $Fallitem3[$i]["stuClass"]=3;
+                    }
+                    array_splice($stuFall,0,(60-$Class3));
+                    $FallnewData3=$Fallitem3;
                     
-        //             foreach($FallnewData3 as $k=>$v){  
+                    foreach($FallnewData3 as $k=>$v){  
                         
-        //                 $Stu->data($v)->save();
-        //             } 
-        //         }
-        //         else
-        //         {
-        //             foreach ($stuFall as $key => $value) 
-        //             {
-        //                $stuFall[$key]["stuClass"]=3;
-        //             }
+                        $Stu->data($v)->save();
+                    } 
+                }
+                else
+                {
+                    foreach ($stuFall as $key => $value) 
+                    {
+                       $stuFall[$key]["stuClass"]=3;
+                    }
 
-        //             foreach($stuFall as $k=>$v){  
-        //                 $Stu->data($v)->save();
-        //             } 
-        //         }
-        //     }
+                    foreach($stuFall as $k=>$v){  
+                        $Stu->data($v)->save();
+                    } 
+                }
+            }
 
-        //     if(30>$Class5)
-        //     {
-        //         if((30-$Class5)<$stuFallLen){
-        //             $FallnewData5=array();
-        //             $Fallitem5=array();
-        //             for($i=0;$i<(30-$Class5);$i++)
-        //             {
-        //                 $Fallitem5[]=$stuFall[$i];
-        //                 $Fallitem5[$i]["stuClass"]=5;
-        //                 // dump( $Fallitem5[$i]);
-        //             }
-        //             array_splice($stuFall,0,(30-$Class5));
-        //             $FallnewData5=$Fallitem5;
+            if(30>$Class5)
+            {
+                if((30-$Class5)<$stuFallLen){
+                    $FallnewData5=array();
+                    $Fallitem5=array();
+                    for($i=0;$i<(30-$Class5);$i++)
+                    {
+                        $Fallitem5[]=$stuFall[$i];
+                        $Fallitem5[$i]["stuClass"]=5;
+                        // dump( $Fallitem5[$i]);
+                    }
+                    array_splice($stuFall,0,(30-$Class5));
+                    $FallnewData5=$Fallitem5;
                     
-        //             foreach($FallnewData5 as $k=>$v){  
+                    foreach($FallnewData5 as $k=>$v){  
                         
-        //                 $Stu->data($v)->save();
-        //             } 
-        //         }
-        //         else
-        //         {
-        //             foreach ($stuFall as $key => $value) 
-        //             {
-        //                $stuFall[$key]["stuClass"]=5;
-        //             }
+                        $Stu->data($v)->save();
+                    } 
+                }
+                else
+                {
+                    foreach ($stuFall as $key => $value) 
+                    {
+                       $stuFall[$key]["stuClass"]=5;
+                    }
 
-        //             foreach($stuFall as $k=>$v){  
-        //                 $Stu->data($v)->save();
-        //             } 
-        //         }
-        //     } 
-        // }
+                    foreach($stuFall as $k=>$v){  
+                        $Stu->data($v)->save();
+                    } 
+                }
+            } 
+        }
 
-        // $divis4Len = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
+        $divis4Len = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
 
-        // if(30>$divis4Len){
-        //     $divisClass3=$Stu->where("stuClass=3")->order('stuAverage DESC')->select();
-        //     $divisClass4=array();
+        if(30>$divis4Len){
+            $divisClass3=$Stu->where("stuClass=3")->order('stuAverage DESC')->select();
+            $divisClass4=array();
 
-        //     $divisItem4=array();
-        //     for($i=0;$i<60;$i=$i+2,$j++)
-        //     {   
-        //         $divisClass3[$i]["stuClass"]=4;
-        //         $divisItem4[]=$divisClass3[$i];
-        //     }
-        //     foreach($divisItem4 as $k=>$v){  
-        //         $Stu->data($v)->save();
-        //     } 
-        // }
+            $divisItem4=array();
+            for($i=0;$i<60;$i=$i+2,$j++)
+            {   
+                $divisClass3[$i]["stuClass"]=4;
+                $divisItem4[]=$divisClass3[$i];
+            }
+            foreach($divisItem4 as $k=>$v){  
+                $Stu->data($v)->save();
+            } 
+        }
 
         $flag1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
         $flag2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
@@ -762,9 +786,9 @@ class IndexController extends Controller {
         $flag4 = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
         $flag5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
 
-        // if(24==$flag1 && 30==$flag2 && 30==$flag3 && 30==$flag4 && 30==$flag5){
-        //     $this->success('分班成功');
-        // }
+        if($flag1+$flag2+$flag3+$flag4+$flag5){
+            $this->success('分班成功');
+        }
     }
     public function delete_data()
     {
@@ -775,7 +799,7 @@ class IndexController extends Controller {
         $res3=$Stu->where('stuClass=3')->delete();
         $res4=$Stu->where('stuClass=4')->delete();
         $res5=$Stu->where('stuClass=5')->delete();
-        if (144<$res0+$res1+$res2+$res3+$res4+$res5) {
+        if ($res0+$res1+$res2+$res3+$res4+$res5) {
             echo "suecess";
         }else{
             echo "error";
