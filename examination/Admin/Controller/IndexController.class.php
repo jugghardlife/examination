@@ -476,320 +476,341 @@ class IndexController extends Controller {
         exit;
     }
 
+    // public function divide()
+    // {
+    //     $Stu = M ('Stu');
+    //     //进行分班
+    //     for($i=1;$i<5;$i++)
+    //     {
+    //         //得到志愿
+    //         $data1 = $Stu->where("stuVol".$i."=1 AND stuClass=0")->order('stuAverage DESC')->select();
+    //         $data2 = $Stu->where("stuVol".$i."=2 AND stuClass=0")->order('stuAverage DESC')->select();
+    //         $data3 = $Stu->where("stuVol".$i."=3 AND stuClass=0")->order('stuAverage DESC')->select();
+    //         $data5 = $Stu->where("stuVol".$i."=4 AND stuClass=0")->order('stuAverage DESC')->select();
+    //         //得到志愿的人数
+    //         $data1Len=count($data1);
+    //         $data2Len=count($data2);
+    //         $data3Len=count($data3);
+    //         $data5Len=count($data5);
+    //         //查找班级的人数
+    //         $ClassN1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
+    //         $ClassN2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
+    //         $ClassN3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
+    //         $ClassN5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
+
+    //         if(24>$ClassN1)//看班级是否分满
+    //         {
+    //             if((24-$ClassN1)<$data1Len){//填报志愿人数超过班级的人数
+    //                 $newData1=array();
+    //                 $item1=array();
+    //                 for($i=0;$i<(24-$ClassN1);$i++)
+    //                 {
+    //                     $item1[]=$data1[$i];
+    //                     $item1[$i]["stuClass"]=1;
+    //                 }
+    //                 // array_splice($data1,0,(24-$ClassN1));
+    //                 $newData1=$item1;
+                    
+    //                 foreach($newData1 as $k=>$v){  
+                        
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //             else//填报志愿人数没超过班级的人数
+    //             {
+    //                 foreach ($data1 as $key => $value) 
+    //                 {
+    //                    $data1[$key]["stuClass"]=1;
+    //                 }
+
+    //                 foreach($data1 as $k=>$v){  
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //         }
+
+    //         if(30>$ClassN2)
+    //         {
+    //             if((30-$ClassN2)<$data2Len){
+    //                 $newData2=array();
+    //                 $item2=array();
+    //                 for($i=0;$i<(30-$ClassN2);$i++)
+    //                 {
+    //                     $item2[]=$data2[$i];
+    //                     $item2[$i]["stuClass"]=2;
+    //                 }
+    //                 // array_splice($data2,0,(24-$ClassN1));
+    //                 $newData2=$item2;
+                    
+    //                 foreach($newData2 as $k=>$v){  
+                        
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //             else
+    //             {
+    //                 foreach ($data2 as $key => $value) 
+    //                 {
+    //                    $data2[$key]["stuClass"]=2;
+    //                 }
+
+    //                 foreach($data2 as $k=>$v){  
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //         }
+
+    //         if(60>$ClassN3)
+    //         {
+    //             if((60-$ClassN3)<$data3Len){
+    //                 $newData3=array();
+    //                 $item3=array();
+    //                 for($i=0;$i<(60-$ClassN3);$i++)
+    //                 {
+    //                     $item3[]=$data3[$i];
+    //                     $item3[$i]["stuClass"]=3;
+    //                 }
+    //                 // array_splice($data3,0,(60-$ClassN3));
+    //                 $newData3=$item3;
+                    
+    //                 foreach($newData3 as $k=>$v){  
+                        
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //             else
+    //             {
+    //                 foreach ($data3 as $key => $value) 
+    //                 {
+    //                    $data3[$key]["stuClass"]=3;
+    //                 }
+
+    //                 foreach($data3 as $k=>$v){  
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //         }
+    //         if(30>$ClassN5)
+    //         {
+    //             if((30-$ClassN5)<$data1Len){
+    //                 $newData5=array();
+    //                 $item5=array();
+    //                 for($i=0;$i<(30-$ClassN5);$i++)
+    //                 {
+    //                     $item5[]=$data5[$i];
+    //                     $item5[$i]["stuClass"]=5;
+    //                 }
+    //                 // array_splice($data4,0,(30-$ClassN4));
+    //                 $newData5=$item5;
+    //                 foreach($newData5 as $k=>$v){  
+                        
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //             else
+    //             {
+    //                 foreach ($data5 as $key => $value) 
+    //                 {
+    //                    $data5[$key]["stuClass"]=5;
+    //                 }
+
+    //                 foreach($data5 as $k=>$v){  
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //         }
+    //         $Class0 = count($Stu->where("stuClass=0")->order('stuAverage DESC')->select());
+    //         $Class1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
+    //         $Class2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
+    //         $Class3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
+    //         $Class5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
+    //     }
+
+
+    //     //处理剩下学生
+    //     $Class1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
+    //     $Class2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
+    //     $Class3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
+    //     $Class5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
+    //     $stuFall=$Stu->where("stuClass=0")->order('stuAverage DESC')->select();
+
+    //     $stuFallLen=count($stuFall);
+    //     if($stuFallLen!=0)
+    //     {
+    //         if(24>$Class1)
+    //         {
+    //             if((24-$Class1)<$stuFallLen){
+    //                 $FallnewData1=array();
+    //                 $Fallitem1=array();
+    //                 for($i=0;$i<(24-$Class1);$i++)
+    //                 {
+    //                     $Fallitem1[]=$stuFall[$i];
+    //                     $Fallitem1[$i]["stuClass"]=1;
+    //                 }
+    //                 array_splice($stuFall,0,(24-$Class1));
+    //                 $FallnewData1=$Fallitem1;
+                    
+    //                 foreach($FallnewData1 as $k=>$v){  
+                        
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //             else
+    //             {
+    //                 foreach ($stuFall as $key => $value) 
+    //                 {
+    //                    $stuFall[$key]["stuClass"]=1;
+    //                 }
+
+    //                 foreach($stuFall as $k=>$v){  
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //         }
+
+    //         if(30>$Class2)
+    //         {
+    //             if((30-$Class2)<$stuFallLen){
+    //                 $FallnewData2=array();
+    //                 $Fallitem2=array();
+    //                 for($i=0;$i<(30-$Class2);$i++)
+    //                 {
+    //                     $Fallitem2[]=$stuFall[$i];
+    //                     $Fallitem2[$i]["stuClass"]=2;
+    //                 }
+    //                 array_splice($stuFall,0,(30-$Class2));
+    //                 $FallnewData2=$Fallitem2;
+                    
+    //                 foreach($FallnewData2 as $k=>$v){  
+                        
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //             else
+    //             {
+    //                 foreach ($stuFall as $key => $value) 
+    //                 {
+    //                    $stuFall[$key]["stuClass"]=2;
+    //                 }
+
+    //                 foreach($stuFall as $k=>$v){  
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //         }
+
+    //         if(60>$Class3)
+    //         {
+    //             if((60-$Class3)<$stuFallLen){
+    //                 $FallnewData3=array();
+    //                 $Fallitem3=array();
+    //                 for($i=0;$i<(60-$Class3);$i++)
+    //                 {
+    //                     $Fallitem3[]=$stuFall[$i];
+    //                     $Fallitem3[$i]["stuClass"]=3;
+    //                 }
+    //                 array_splice($stuFall,0,(60-$Class3));
+    //                 $FallnewData3=$Fallitem3;
+                    
+    //                 foreach($FallnewData3 as $k=>$v){  
+                        
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //             else
+    //             {
+    //                 foreach ($stuFall as $key => $value) 
+    //                 {
+    //                    $stuFall[$key]["stuClass"]=3;
+    //                 }
+
+    //                 foreach($stuFall as $k=>$v){  
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //         }
+
+    //         if(30>$Class5)
+    //         {
+    //             if((30-$Class5)<$stuFallLen){
+    //                 $FallnewData5=array();
+    //                 $Fallitem5=array();
+    //                 for($i=0;$i<(30-$Class5);$i++)
+    //                 {
+    //                     $Fallitem5[]=$stuFall[$i];
+    //                     $Fallitem5[$i]["stuClass"]=5;
+    //                     // dump( $Fallitem5[$i]);
+    //                 }
+    //                 array_splice($stuFall,0,(30-$Class5));
+    //                 $FallnewData5=$Fallitem5;
+                    
+    //                 foreach($FallnewData5 as $k=>$v){  
+                        
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //             else
+    //             {
+    //                 foreach ($stuFall as $key => $value) 
+    //                 {
+    //                    $stuFall[$key]["stuClass"]=5;
+    //                 }
+
+    //                 foreach($stuFall as $k=>$v){  
+    //                     $Stu->data($v)->save();
+    //                 } 
+    //             }
+    //         } 
+    //     }
+
+    //     $divis4Len = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
+
+    //     if(30>$divis4Len){
+    //         $divisClass3=$Stu->where("stuClass=3")->order('stuAverage DESC')->select();
+    //         $divisClass4=array();
+
+    //         $divisItem4=array();
+    //         for($i=0;$i<60;$i=$i+2,$j++)
+    //         {   
+    //             $divisClass3[$i]["stuClass"]=4;
+    //             $divisItem4[]=$divisClass3[$i];
+    //         }
+    //         foreach($divisItem4 as $k=>$v){  
+    //             $Stu->data($v)->save();
+    //         } 
+    //     }
+
+    //     $flag1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
+    //     $flag2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
+    //     $flag3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
+    //     $flag4 = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
+    //     $flag5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
+
+    //     if($flag1+$flag2+$flag3+$flag4+$flag5){
+    //         $this->success('分班成功');
+    //     }
+    // }
+
     public function divide()
     {
         $Stu = M ('Stu');
-        //进行分班
-        for($i=1;$i<5;$i++)
+        $class0 = $Stu->where("stuClass=0")->order('stuAverage DESC')->select();
+        if(!$class0){
+            return ;
+        }
+        $class0Len=count($Stu->where("stuClass=0")->order('stuAverage DESC')->select());
+        
+        for($i=1;$i<($class0Len+1);$i++)
         {
-            //得到志愿
-            $data1 = $Stu->where("stuVol".$i."=1 AND stuClass=0")->order('stuAverage DESC')->select();
-            $data2 = $Stu->where("stuVol".$i."=2 AND stuClass=0")->order('stuAverage DESC')->select();
-            $data3 = $Stu->where("stuVol".$i."=3 AND stuClass=0")->order('stuAverage DESC')->select();
-            $data5 = $Stu->where("stuVol".$i."=4 AND stuClass=0")->order('stuAverage DESC')->select();
-            //得到志愿的人数
-            $data1Len=count($data1);
-            $data2Len=count($data2);
-            $data3Len=count($data3);
-            $data5Len=count($data5);
-            //查找班级的人数
-            $ClassN1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
-            $ClassN2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
-            $ClassN3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
-            $ClassN5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
-
-            if(24>$ClassN1)//看班级是否分满
+            
+            for($j=1;$j<5;$j++)
             {
-                if((24-$ClassN1)<$data1Len){//填报志愿人数超过班级的人数
-                    $newData1=array();
-                    $item1=array();
-                    for($i=0;$i<(24-$ClassN1);$i++)
-                    {
-                        $item1[]=$data1[$i];
-                        $item1[$i]["stuClass"]=1;
-                    }
-                    // array_splice($data1,0,(24-$ClassN1));
-                    $newData1=$item1;
-                    
-                    foreach($newData1 as $k=>$v){  
-                        
-                        $Stu->data($v)->save();
-                    } 
-                }
-                else//填报志愿人数没超过班级的人数
-                {
-                    foreach ($data1 as $key => $value) 
-                    {
-                       $data1[$key]["stuClass"]=1;
-                    }
-
-                    foreach($data1 as $k=>$v){  
-                        $Stu->data($v)->save();
-                    } 
-                }
-            }
-
-            if(30>$ClassN2)
-            {
-                if((30-$ClassN2)<$data2Len){
-                    $newData2=array();
-                    $item2=array();
-                    for($i=0;$i<(30-$ClassN2);$i++)
-                    {
-                        $item2[]=$data2[$i];
-                        $item2[$i]["stuClass"]=2;
-                    }
-                    // array_splice($data2,0,(24-$ClassN1));
-                    $newData2=$item2;
-                    
-                    foreach($newData2 as $k=>$v){  
-                        
-                        $Stu->data($v)->save();
-                    } 
-                }
-                else
-                {
-                    foreach ($data2 as $key => $value) 
-                    {
-                       $data2[$key]["stuClass"]=2;
-                    }
-
-                    foreach($data2 as $k=>$v){  
-                        $Stu->data($v)->save();
-                    } 
-                }
-            }
-
-            if(60>$ClassN3)
-            {
-                if((60-$ClassN3)<$data3Len){
-                    $newData3=array();
-                    $item3=array();
-                    for($i=0;$i<(60-$ClassN3);$i++)
-                    {
-                        $item3[]=$data3[$i];
-                        $item3[$i]["stuClass"]=3;
-                    }
-                    // array_splice($data3,0,(60-$ClassN3));
-                    $newData3=$item3;
-                    
-                    foreach($newData3 as $k=>$v){  
-                        
-                        $Stu->data($v)->save();
-                    } 
-                }
-                else
-                {
-                    foreach ($data3 as $key => $value) 
-                    {
-                       $data3[$key]["stuClass"]=3;
-                    }
-
-                    foreach($data3 as $k=>$v){  
-                        $Stu->data($v)->save();
-                    } 
-                }
-            }
-            if(30>$ClassN5)
-            {
-                if((30-$ClassN5)<$data1Len){
-                    $newData5=array();
-                    $item5=array();
-                    for($i=0;$i<(30-$ClassN5);$i++)
-                    {
-                        $item5[]=$data5[$i];
-                        $item5[$i]["stuClass"]=5;
-                    }
-                    // array_splice($data4,0,(30-$ClassN4));
-                    $newData5=$item5;
-                    foreach($newData5 as $k=>$v){  
-                        
-                        $Stu->data($v)->save();
-                    } 
-                }
-                else
-                {
-                    foreach ($data5 as $key => $value) 
-                    {
-                       $data5[$key]["stuClass"]=5;
-                    }
-
-                    foreach($data5 as $k=>$v){  
-                        $Stu->data($v)->save();
-                    } 
-                }
-            }
-            $Class0 = count($Stu->where("stuClass=0")->order('stuAverage DESC')->select());
-            $Class1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
-            $Class2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
-            $Class3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
-            $Class5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
-        }
-
-
-        //处理剩下学生
-        $Class1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
-        $Class2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
-        $Class3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
-        $Class5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
-        $stuFall=$Stu->where("stuClass=0")->order('stuAverage DESC')->select();
-
-        $stuFallLen=count($stuFall);
-        if($stuFallLen!=0)
-        {
-            if(24>$Class1)
-            {
-                if((24-$Class1)<$stuFallLen){
-                    $FallnewData1=array();
-                    $Fallitem1=array();
-                    for($i=0;$i<(24-$Class1);$i++)
-                    {
-                        $Fallitem1[]=$stuFall[$i];
-                        $Fallitem1[$i]["stuClass"]=1;
-                    }
-                    array_splice($stuFall,0,(24-$Class1));
-                    $FallnewData1=$Fallitem1;
-                    
-                    foreach($FallnewData1 as $k=>$v){  
-                        
-                        $Stu->data($v)->save();
-                    } 
-                }
-                else
-                {
-                    foreach ($stuFall as $key => $value) 
-                    {
-                       $stuFall[$key]["stuClass"]=1;
-                    }
-
-                    foreach($stuFall as $k=>$v){  
-                        $Stu->data($v)->save();
-                    } 
-                }
-            }
-
-            if(30>$Class2)
-            {
-                if((30-$Class2)<$stuFallLen){
-                    $FallnewData2=array();
-                    $Fallitem2=array();
-                    for($i=0;$i<(30-$Class2);$i++)
-                    {
-                        $Fallitem2[]=$stuFall[$i];
-                        $Fallitem2[$i]["stuClass"]=2;
-                    }
-                    array_splice($stuFall,0,(30-$Class2));
-                    $FallnewData2=$Fallitem2;
-                    
-                    foreach($FallnewData2 as $k=>$v){  
-                        
-                        $Stu->data($v)->save();
-                    } 
-                }
-                else
-                {
-                    foreach ($stuFall as $key => $value) 
-                    {
-                       $stuFall[$key]["stuClass"]=2;
-                    }
-
-                    foreach($stuFall as $k=>$v){  
-                        $Stu->data($v)->save();
-                    } 
-                }
-            }
-
-            if(60>$Class3)
-            {
-                if((60-$Class3)<$stuFallLen){
-                    $FallnewData3=array();
-                    $Fallitem3=array();
-                    for($i=0;$i<(60-$Class3);$i++)
-                    {
-                        $Fallitem3[]=$stuFall[$i];
-                        $Fallitem3[$i]["stuClass"]=3;
-                    }
-                    array_splice($stuFall,0,(60-$Class3));
-                    $FallnewData3=$Fallitem3;
-                    
-                    foreach($FallnewData3 as $k=>$v){  
-                        
-                        $Stu->data($v)->save();
-                    } 
-                }
-                else
-                {
-                    foreach ($stuFall as $key => $value) 
-                    {
-                       $stuFall[$key]["stuClass"]=3;
-                    }
-
-                    foreach($stuFall as $k=>$v){  
-                        $Stu->data($v)->save();
-                    } 
-                }
-            }
-
-            if(30>$Class5)
-            {
-                if((30-$Class5)<$stuFallLen){
-                    $FallnewData5=array();
-                    $Fallitem5=array();
-                    for($i=0;$i<(30-$Class5);$i++)
-                    {
-                        $Fallitem5[]=$stuFall[$i];
-                        $Fallitem5[$i]["stuClass"]=5;
-                        // dump( $Fallitem5[$i]);
-                    }
-                    array_splice($stuFall,0,(30-$Class5));
-                    $FallnewData5=$Fallitem5;
-                    
-                    foreach($FallnewData5 as $k=>$v){  
-                        
-                        $Stu->data($v)->save();
-                    } 
-                }
-                else
-                {
-                    foreach ($stuFall as $key => $value) 
-                    {
-                       $stuFall[$key]["stuClass"]=5;
-                    }
-
-                    foreach($stuFall as $k=>$v){  
-                        $Stu->data($v)->save();
-                    } 
-                }
-            } 
-        }
-
-        $divis4Len = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
-
-        if(30>$divis4Len){
-            $divisClass3=$Stu->where("stuClass=3")->order('stuAverage DESC')->select();
-            $divisClass4=array();
-
-            $divisItem4=array();
-            for($i=0;$i<60;$i=$i+2,$j++)
-            {   
-                $divisClass3[$i]["stuClass"]=4;
-                $divisItem4[]=$divisClass3[$i];
-            }
-            foreach($divisItem4 as $k=>$v){  
-                $Stu->data($v)->save();
-            } 
-        }
-
-        $flag1 = count($Stu->where("stuClass=1")->order('stuAverage DESC')->select());
-        $flag2 = count($Stu->where("stuClass=2")->order('stuAverage DESC')->select());
-        $flag3 = count($Stu->where("stuClass=3")->order('stuAverage DESC')->select());
-        $flag4 = count($Stu->where("stuClass=4")->order('stuAverage DESC')->select());
-        $flag5 = count($Stu->where("stuClass=5")->order('stuAverage DESC')->select());
-
-        if($flag1+$flag2+$flag3+$flag4+$flag5){
-            $this->success('分班成功');
+                dump($Stu->where("stuR=".$i." AND stuClass=0")->field("stuVol".$j)->select());
+            }   
+            echo "<br/>";
         }
     }
+
     public function delete_data()
     {
         $Stu = M ('Stu');
