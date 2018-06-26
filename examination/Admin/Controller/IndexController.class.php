@@ -805,7 +805,24 @@ class IndexController extends Controller {
             
             for($j=1;$j<5;$j++)
             {
-                dump($Stu->where("stuR=".$i." AND stuClass=0")->field("stuVol".$j)->select());
+                $temp=$Stu->where("stuR=".$i." AND stuClass=0")->field("stuVol".$j)->select();
+                $stuVol = $temp[0]["stuVol".$j];
+                if(1==$stuVol){
+                    $tempData["stuClass"]=1;
+                    $tempLen=count($Stu->where("stuClass=1")->select());
+                    $condition=$Stu->where("stuR=".$i." AND stuClass=0")->field("stuS1,stuR")->select();
+                    if($condition[0]["stuS1"]>=75 && $condition[0]["stuR"]<=60){
+                        if($tempLen<24){
+                            $Stu->where("stuR=".$i." AND stuClass=0")->save($tempData);
+                        }
+                    }
+                }else if(2==$stuVol){
+                    echo "2";
+                }else if(3==$stuVol){
+                    echo "3";
+                }else if(4==$stuVol){
+                    echo "4";
+                }
             }   
             echo "<br/>";
         }
