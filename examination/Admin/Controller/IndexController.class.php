@@ -794,7 +794,15 @@ class IndexController extends Controller {
     public function divide()
     {
         $Stu = M ('Stu');
+        $classPer=M("class");
         $class0 = $Stu->where("stuClass=0")->order('stuAverage DESC')->select();
+        $classTotal=$classPer->select();
+        // dump($classTotal);
+        echo $classTotal["0"]["person"];
+        echo $classTotal["1"]["person"];
+        echo $classTotal["2"]["person"];
+        echo $classTotal["3"]["person"];
+        echo "<br/>";
         if(!$class0){
             return ;
         }
@@ -842,5 +850,17 @@ class IndexController extends Controller {
         }else{
             echo "error";
         }
+    }
+
+    public function changeClassIndex(){
+        $classPer=M("class");
+        $res=$classPer->select();
+        dump($res);
+        $this->assign('res',$res);
+        $this->display();
+    }
+
+    public function changeClassP(){
+
     }
 }

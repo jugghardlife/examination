@@ -1,0 +1,7 @@
+.classP_list {
+	display: flex;
+}
+
+.classP_list span {
+	display: block;
+}

@@ -34,6 +34,10 @@ xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN
 			<div class="stuchoose_content_bottom">
 				<div class="stuchoose_content_bottom_left"><a href="<?php echo U('Index/pswStuA');?>">重置学生密码</a></div>
 				<div class="stuchoose_content_bottom_right"><a href="<?php echo U('Index/adminAmpsw');?>">修改密码</a></div>
+			</div>
+			<div class="stuchoose_content_bottom">
+				<div class="stuchoose_content_bottom_left"><a href="<?php echo U('Index/pswStuA');?>">修改班级人数</a></div>
+				<!-- <div class="stuchoose_content_bottom_right"><a href="<?php echo U('Index/adminAmpsw');?>">修改密码</a></div> -->
 			</div>		
 		</div>
 	</div>
