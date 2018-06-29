@@ -31,59 +31,59 @@ xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN
 				<div></div>
 				<div class="stuScore_adminsScore">
 					<a class="export_data" href="<?php echo U('Admin/index/expUser');?>">导出学生数据</a>
-					<a onClick="javascript :history.back(-1);">返回</a>
+					<a href="<?php echo U('Admin/index/adminChoose');?>">返回</a>
 				</div>
 			</div>
 			<div class="stuScore_content_top">
 				<div>序号</div>
 				<div>排名</div>
-				<div style="width: 300px;overflow: hidden;">学号</div>
+				<div style="width: 600px;overflow: hidden;">学号</div>
 				<div>姓名</div>
-				<div>成绩1</div>
-				<div>成绩2</div>
-				<div>成绩3</div>
-				<div>成绩4</div>
-				<div>成绩5</div>
-				<div>成绩6</div>
-				<div style="width:680px;overflow: hidden;">志愿A</div>
-				<div style="width:680px;overflow: hidden;">志愿B</div>
-				<div style="width:680px;overflow: hidden;">志愿C</div>
-				<div style="width:680px;overflow: hidden;">志愿D</div>
+				<div style="width: 580px;overflow: hidden;">实用英语</div>
+				<div style="width: 580px;overflow: hidden;">高等数学</div>
+				<div style="width: 580px;overflow: hidden;">无机化学</div>
+				<div style="width: 580px;overflow: hidden;">有机化学</div>
+				<div style="width: 580px;overflow: hidden;">物理化学</div>
+				<div style="width: 840px;overflow: hidden;">化学分析检验技术</div>
+				<div style="width:680px;overflow: hidden;height: 42px;">志愿A</div>
+				<div style="width:680px;overflow: hidden;height: 42px;">志愿B</div>
+				<div style="width:680px;overflow: hidden;height: 42px;">志愿C</div>
+				<div style="width:680px;overflow: hidden;height: 42px;">志愿D</div>
 				<div>总分</div>
 				<div class="stuScore_content_top_last">平均分</div>
 			</div>
 			<?php if(is_array($doc_list)): $i = 0; $__LIST__ = $doc_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="stuScore_content_details">
 					<div><?php echo ($vo["stuR"]); ?></div>
 					<div><?php echo ($vo["stuR"]); ?></div>
-					<div style="width: 300px;overflow: hidden;"><?php echo ($vo["stuNum"]); ?></div>
+					<div style="width: 600px;overflow: hidden;"><?php echo ($vo["stuNum"]); ?></div>
 					<div><?php echo ($vo["stuName"]); ?></div>
-					<div><?php echo ($vo["stuS1"]); ?></div>
-					<div><?php echo ($vo["stuS2"]); ?></div>
-					<div><?php echo ($vo["stuS3"]); ?></div>
-					<div><?php echo ($vo["stuS4"]); ?></div>
-					<div><?php echo ($vo["stuS5"]); ?></div>
-					<div><?php echo ($vo["stuS6"]); ?></div>
-					<!-- <div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div> -->
-					<?php if($vo['stuVol1'] == 1): ?><div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div>
-			            <?php elseif($vo['stuVol1'] == 2): ?><div style="width:680px;overflow: hidden;">应用化工技术</div>
-			            <?php elseif($vo['stuVol1'] == 3): ?><div style="width:680px;overflow: hidden;">工业分析技术</div>
-			            <?php elseif($vo['stuVol1'] == 4): ?><div style="width:680px;overflow: hidden;">化工装备技术</div>
-			            <?php else: ?> <div style="width:680px;overflow: hidden;">未填报</div><?php endif; ?>
-					<?php if($vo['stuVol2'] == 1): ?><div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div>
-			            <?php elseif($vo['stuVol2'] == 2): ?><div style="width:680px;overflow: hidden;">应用化工技术</div>
-			            <?php elseif($vo['stuVol2'] == 3): ?><div style="width:680px;overflow: hidden;">工业分析技术</div>
-			            <?php elseif($vo['stuVol2'] == 4): ?><div style="width:680px;overflow: hidden;">化工装备技术</div>
-			            <?php else: ?> <div style="width:680px;overflow: hidden;">未填报</div><?php endif; ?>
-					<?php if($vo['stuVol3'] == 1): ?><div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div>
-			            <?php elseif($vo['stuVol3'] == 2): ?><div style="width:680px;overflow: hidden;">应用化工技术</div>
-			            <?php elseif($vo['stuVol3'] == 3): ?><div style="width:680px;overflow: hidden;">工业分析技术</div>
-			            <?php elseif($vo['stuVol3'] == 4): ?><div style="width:680px;overflow: hidden;">化工装备技术</div>
-			            <?php else: ?> <div style="width:680px;overflow: hidden;">未填报</div><?php endif; ?>
-					<?php if($vo['stuVol4'] == 1): ?><div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div>
-			            <?php elseif($vo['stuVol4'] == 2): ?><div style="width:680px;overflow: hidden;">应用化工技术</div>
-			            <?php elseif($vo['stuVol4'] == 3): ?><div style="width:680px;overflow: hidden;">工业分析技术</div>
-			            <?php elseif($vo['stuVol4'] == 4): ?><div style="width:680px;overflow: hidden;">化工装备技术</div>
-			            <?php else: ?> <div style="width:680px;overflow: hidden;">未填报</div><?php endif; ?>
+					<div style="width: 580px;overflow: hidden;"><?php echo ($vo["stuS1"]); ?></div>
+					<div style="width: 580px;overflow: hidden;"><?php echo ($vo["stuS2"]); ?></div>
+					<div style="width: 580px;overflow: hidden;"><?php echo ($vo["stuS3"]); ?></div>
+					<div style="width: 580px;overflow: hidden;"><?php echo ($vo["stuS4"]); ?></div>
+					<div style="width: 580px;overflow: hidden;"><?php echo ($vo["stuS5"]); ?></div>
+					<div style="width: 840px;overflow: hidden;"><?php echo ($vo["stuS6"]); ?></div>
+					<!-- <div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div> -->
+					<?php if($vo['stuVol1'] == 1): ?><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div>
+			            <?php elseif($vo['stuVol1'] == 2): ?><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术</div>
+			            <?php elseif($vo['stuVol1'] == 3): ?><div style="width:680px;overflow: hidden;height: 42px;">工业分析技术</div>
+			            <?php elseif($vo['stuVol1'] == 4): ?><div style="width:680px;overflow: hidden;height: 42px;">化工装备技术</div>
+			            <?php else: ?> <div style="width:680px;overflow: hidden;height: 42px;">未填报</div><?php endif; ?>
+					<?php if($vo['stuVol2'] == 1): ?><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div>
+			            <?php elseif($vo['stuVol2'] == 2): ?><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术</div>
+			            <?php elseif($vo['stuVol2'] == 3): ?><div style="width:680px;overflow: hidden;height: 42px;">工业分析技术</div>
+			            <?php elseif($vo['stuVol2'] == 4): ?><div style="width:680px;overflow: hidden;height: 42px;">化工装备技术</div>
+			            <?php else: ?> <div style="width:680px;overflow: hidden;height: 42px;">未填报</div><?php endif; ?>
+					<?php if($vo['stuVol3'] == 1): ?><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div>
+			            <?php elseif($vo['stuVol3'] == 2): ?><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术</div>
+			            <?php elseif($vo['stuVol3'] == 3): ?><div style="width:680px;overflow: hidden;height: 42px;">工业分析技术</div>
+			            <?php elseif($vo['stuVol3'] == 4): ?><div style="width:680px;overflow: hidden;height: 42px;">化工装备技术</div>
+			            <?php else: ?> <div style="width:680px;overflow: hidden;height: 42px;">未填报</div><?php endif; ?>
+					<?php if($vo['stuVol4'] == 1): ?><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div>
+			            <?php elseif($vo['stuVol4'] == 2): ?><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术</div>
+			            <?php elseif($vo['stuVol4'] == 3): ?><div style="width:680px;overflow: hidden;height: 42px;">工业分析技术</div>
+			            <?php elseif($vo['stuVol4'] == 4): ?><div style="width:680px;overflow: hidden;height: 42px;">化工装备技术</div>
+			            <?php else: ?> <div style="width:680px;overflow: hidden;height: 42px;">未填报</div><?php endif; ?>
 					<div><?php echo ($vo["stuTot"]); ?></div>
 					<!-- <div><?php echo ($vo["stuAverage"]); ?></div> -->
 					<div class="stuScore_content_top_last"><?php echo ($vo["stuAverage"]); ?></div>

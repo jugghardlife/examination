@@ -9,6 +9,32 @@
 	<link rel="stylesheet" href="/examination/Public/public/css/public.css">
 	<link rel="stylesheet" href="/examination/Public/stu/css/see.css">
 	<script src="/examination/Public/public/js/jq.js"></script>
+	<style>	
+		.stuScore_content_details .stuScore_Admin_Num {
+			width: 150px;
+			overflow: hidden;
+		}	
+		.stuScore_content_details .stuScore_Admin_C {
+			width: 120px;
+			overflow: hidden;
+		}
+		.stuScore_content_details .stuScore_Admin_Last {
+			width: 200px;
+			overflow: hidden;
+		}
+		.stuScore_content_top .stuScore_Admin_Num {
+			width: 150px;
+			overflow: hidden;
+		}
+		.stuScore_content_top .stuScore_Admin_C {
+			width: 120px;
+			overflow: hidden;
+		}
+		.stuScore_content_top .stuScore_Admin_Last {
+			width: 200px;
+			overflow: hidden;
+		}	
+	</style>
 </head>
 <body class="stuScore_body">
 	<div class="stuScore_bgc"></div>
@@ -47,8 +73,8 @@ xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN
 					  <option value ="1">化工1（国际化）</option>
 					  <option value ="2">化工2</option>
 					  <option value="3">工分1</option>
-					  <option value="4">工分2</option>
-					  <option value="5">装备1</option>
+					  <option value="4">装备1</option>
+					  <option value="0">未分班</option>
 					</select>
 				</div>
 				<div class="class_num">
@@ -67,14 +93,14 @@ xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN
 			<div class="stuScore_content_top">
 				<div>班級排名</div>
 				<div>排名</div>
-				<div>学号</div>
+				<div class="stuScore_Admin_Num">学号</div>
 				<div>姓名</div>
-				<div>成绩1</div>
-				<div>成绩2</div>
-				<div>成绩3</div>
-				<div>成绩4</div>
-				<div>成绩5</div>
-				<div>成绩6</div>
+				<div class="stuScore_Admin_C">实用英语</div>
+				<div class="stuScore_Admin_C">高等数学</div>
+				<div class="stuScore_Admin_C">无机化学</div>
+				<div class="stuScore_Admin_C">有机化学</div>
+				<div class="stuScore_Admin_C">物理化学</div>
+				<div class="stuScore_Admin_Last">化学分析检验技术</div>
 				<div>总分</div>
 				<div>平均分</div>
 				<div class="change_ope">
@@ -85,17 +111,17 @@ xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN
 				<?php if(is_array($doc_list)): $k = 0; $__LIST__ = $doc_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?><div class="stuScore_content_details" id="<?php echo ($vo["stuNum"]); ?>">
 						<div><?php echo ($k); ?></div>
 						<div><?php echo ($vo["stuR"]); ?></div>
-						<div><?php echo ($vo["stuNum"]); ?></div>
+						<div class="stuScore_Admin_Num"><?php echo ($vo["stuNum"]); ?></div>
 						<div><?php echo ($vo["stuName"]); ?></div>
-						<div><?php echo ($vo["stuS1"]); ?></div>
-						<div><?php echo ($vo["stuS2"]); ?></div>
-						<div><?php echo ($vo["stuS3"]); ?></div>
-						<div><?php echo ($vo["stuS4"]); ?></div>
-						<div><?php echo ($vo["stuS5"]); ?></div>
-						<div><?php echo ($vo["stuS6"]); ?></div>
+						<div class="stuScore_Admin_C"><?php echo ($vo["stuS1"]); ?></div>
+						<div class="stuScore_Admin_C"><?php echo ($vo["stuS2"]); ?></div>
+						<div class="stuScore_Admin_C"><?php echo ($vo["stuS3"]); ?></div>
+						<div class="stuScore_Admin_C"><?php echo ($vo["stuS4"]); ?></div>
+						<div class="stuScore_Admin_C"><?php echo ($vo["stuS5"]); ?></div>
+						<div class="stuScore_Admin_Last"><?php echo ($vo["stuS6"]); ?></div>
 						<div><?php echo ($vo["stuTot"]); ?></div>
 						<div><?php echo ($vo["stuAverage"]); ?></div>
-						<div class="stuScore_content_top_last">
+						<div class="stuScore_content_top_last" style="width: 99px;overflow: hidden;">
 							<div class="see_btn" title="<?php echo ($vo["stuNum"]); ?>" onclick="see_btn(this)">
 								<input type="hidden" value="<?php echo ($vo["stuNum"]); ?>">
 								<a >修改</a>
@@ -250,17 +276,17 @@ xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN
 		                str+="<div class='stuScore_content_details' id="+"'"+data["stuNum"]+"'"+">"+
 			                	"<div>"+(i+1)+"</div>"+
 			                	"<div>"+data["stuR"]+"</div>"+
-			                	"<div>"+data["stuNum"]+"</div>"+
+			                	"<div class='stuScore_Admin_Num'>"+data["stuNum"]+"</div>"+
 			                	"<div>"+data["stuName"]+"</div>"+
-			                	"<div>"+data["stuS1"]+"</div>"+
-			                	"<div>"+data["stuS2"]+"</div>"+
-			                	"<div>"+data["stuS3"]+"</div>"+
-			                	"<div>"+data["stuS4"]+"</div>"+
-			                	"<div>"+data["stuS5"]+"</div>"+
-			                	"<div>"+data["stuS6"]+"</div>"+
+			                	"<div class='stuScore_Admin_C'>"+data["stuS1"]+"</div>"+
+			                	"<div class='stuScore_Admin_C'>"+data["stuS2"]+"</div>"+
+			                	"<div class='stuScore_Admin_C'>"+data["stuS3"]+"</div>"+
+			                	"<div class='stuScore_Admin_C'>"+data["stuS4"]+"</div>"+
+			                	"<div class='stuScore_Admin_C'>"+data["stuS5"]+"</div>"+
+			                	"<div class='stuScore_Admin_Last'>"+data["stuS6"]+"</div>"+
 			                	"<div>"+data["stuTot"]+"</div>"+
 			                	"<div>"+data["stuAverage"]+"</div>"+
-			                	"<div class='stuScore_content_top_last'>"+
+			                	"<div class='stuScore_content_top_last' style='width: 99px;overflow: hidden;'>"+
 			                	"<div class='see_btn' title="+"'"+data["stuNum"]+"'"+"onclick='see_btn(this)'><a>修改</a></div>"+
 			                	"<div class='del_btn' title="+"'"+data["stuNum"]+"'"+"onclick='del_btn(this)'><a>删除</a></div>"+
 			                	"</div>"+

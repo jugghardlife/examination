@@ -110,6 +110,11 @@
 					{
 						alert("密码错误");
 						return;
+					}else if(1==data.status)
+					{	
+						alert("修改成功");
+						window.location.href="<?php echo U('Home/Stu/stuLogin');?>";
+						return;
 					}
 				},
 				error: function (XmlHttpRequest) {

@@ -72,6 +72,7 @@ xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN
 		            console.log("正在进行，请稍候");
 		        },
 		        success : function(responseStr) {
+			       console.log(responseStr);
 		            if(0==responseStr.status){
 		                alert("导入失败");
 		                return;
@@ -80,7 +81,7 @@ xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN
 		                return;
 		            }else {
 		            	alert("导入成功");
-		            	window.location.href="<?php echo U('Admin/Index/adminChoose');?>";
+		            	// window.location.href="<?php echo U('Admin/Index/adminChoose');?>";
 		            	return;
 		            }
 		        }

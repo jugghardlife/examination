@@ -24,14 +24,13 @@
 			<div class="see_content_top">
 				<div>姓名:<span>{$stu.stuName}</span></div>
 				<div>学号:<span>{$stu.stuNum}</span></div>
-				<div style="overflow: hidden;width: 200px;">班级:
+				<div style="overflow: hidden;width: 200px;">新班级:
 					<!-- <span>待定</span> -->
-					<if condition="$stu['stuClass'] eq 1"><span>化工1（国际化）</span>
-			            <elseif condition="$stu['stuClass'] eq 2"/><span>化工2</span>
-			            <elseif condition="$stu['stuClass'] eq 3"/><span>工分1</span>
-			            <elseif condition="$stu['stuClass'] eq 4"/><span>工分2</span>
-			            <elseif condition="$stu['stuClass'] eq 5"/><span>装备1</span>
-			            <else /> <span>未填报</span>
+					<if condition="$stu['stuClass'] eq 1"><span>17化工1(国际化)</span>
+			            <elseif condition="$stu['stuClass'] eq 2"/><span>17化工2</span>
+			            <elseif condition="$stu['stuClass'] eq 3"/><span>17工分1</span>
+			            <elseif condition="$stu['stuClass'] eq 4"/><span>17装备1</span>
+			            <else /> <span>待定</span>
 		            </if>
 				</div>
 				<div class="see_content_top_last">排名:<span>{$stu.stuR}</span></div>

@@ -26,13 +26,13 @@
 			<div class="fill_content_top">
 				<div class="fill_name">姓名：<span>{$stu.stuName}</span></div>
 				<div class="fill_stunum">学号：<span>{$stu.stuNum}</span></div>
-				<div class="fill_class">班级：
-					<if condition="$stu['stuClass'] eq 1"><span>化工1（国际化）</span>
-			            <elseif condition="$stu['stuClass'] eq 2"/><span>化工2</span>
-			            <elseif condition="$stu['stuClass'] eq 3"/><span>工分1</span>
-			            <elseif condition="$stu['stuClass'] eq 4"/><span>工分2</span>
-			            <elseif condition="$stu['stuClass'] eq 5"/><span>装备1</span>
-			            <else /> <span>未填报</span>
+				<div class="fill_class">原班级：
+					<if condition="$stu['stuOldClass'] eq 1"><span>17化工类1</span>
+			            <elseif condition="$stu['stuOldClass'] eq 2"/><span>17化工类2</span>
+			            <elseif condition="$stu['stuOldClass'] eq 3"/><span>17化工类3</span>
+			            <elseif condition="$stu['stuOldClass'] eq 4"/><span>17化工类4</span>
+			            <elseif condition="$stu['stuOldClass'] eq 5"/><span>17化工类5</span>
+			            <else /> <span>待定</span>
 		            </if>
 		        </div>
 			</div> 
@@ -110,10 +110,10 @@
 	</script>
 	<script>
 		$(".fill_submit").find("button").click(function(){
-			if($(".fill_class").find("span").html()!="未填报"){
-				alert("已分班");
-				return;
-			}
+			// if($(".fill_class").find("span").html()!="未填报"){
+			// 	alert("已分班");
+			// 	return;
+			// }
 			var arr=[$(".fill_first_val").val(),$(".fill_second_val").val(),$(".fill_third_val").val(),$(".fill_fourth_val").val()];
 			for(var i =0;i<arr.length;i++){
 				for(var j=i+1;j<arr.length;j++){

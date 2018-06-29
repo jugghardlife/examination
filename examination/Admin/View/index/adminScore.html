@@ -30,24 +30,24 @@
 				<div></div>
 				<div class="stuScore_adminsScore">
 					<a class="export_data" href="{:U('Admin/index/expUser')}">导出学生数据</a>
-					<a onClick="javascript :history.back(-1);">返回</a>
+					<a href="{:U('Admin/index/adminChoose')}">返回</a>
 				</div>
 			</div>
 			<div class="stuScore_content_top">
 				<div>序号</div>
 				<div>排名</div>
-				<div style="width: 300px;overflow: hidden;">学号</div>
+				<div style="width: 600px;overflow: hidden;">学号</div>
 				<div>姓名</div>
-				<div>成绩1</div>
-				<div>成绩2</div>
-				<div>成绩3</div>
-				<div>成绩4</div>
-				<div>成绩5</div>
-				<div>成绩6</div>
-				<div style="width:680px;overflow: hidden;">志愿A</div>
-				<div style="width:680px;overflow: hidden;">志愿B</div>
-				<div style="width:680px;overflow: hidden;">志愿C</div>
-				<div style="width:680px;overflow: hidden;">志愿D</div>
+				<div style="width: 580px;overflow: hidden;">实用英语</div>
+				<div style="width: 580px;overflow: hidden;">高等数学</div>
+				<div style="width: 580px;overflow: hidden;">无机化学</div>
+				<div style="width: 580px;overflow: hidden;">有机化学</div>
+				<div style="width: 580px;overflow: hidden;">物理化学</div>
+				<div style="width: 840px;overflow: hidden;">化学分析检验技术</div>
+				<div style="width:680px;overflow: hidden;height: 42px;">志愿A</div>
+				<div style="width:680px;overflow: hidden;height: 42px;">志愿B</div>
+				<div style="width:680px;overflow: hidden;height: 42px;">志愿C</div>
+				<div style="width:680px;overflow: hidden;height: 42px;">志愿D</div>
 				<div>总分</div>
 				<div class="stuScore_content_top_last">平均分</div>
 			</div>
@@ -55,38 +55,38 @@
 				<div class="stuScore_content_details">
 					<div>{$vo.stuR}</div>
 					<div>{$vo.stuR}</div>
-					<div style="width: 300px;overflow: hidden;">{$vo.stuNum}</div>
+					<div style="width: 600px;overflow: hidden;">{$vo.stuNum}</div>
 					<div>{$vo.stuName}</div>
-					<div>{$vo.stuS1}</div>
-					<div>{$vo.stuS2}</div>
-					<div>{$vo.stuS3}</div>
-					<div>{$vo.stuS4}</div>
-					<div>{$vo.stuS5}</div>
-					<div>{$vo.stuS6}</div>
-					<!-- <div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div> -->
-					<if condition="$vo['stuVol1'] eq 1"><div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div>
-			            <elseif condition="$vo['stuVol1'] eq 2"/><div style="width:680px;overflow: hidden;">应用化工技术</div>
-			            <elseif condition="$vo['stuVol1'] eq 3"/><div style="width:680px;overflow: hidden;">工业分析技术</div>
-			            <elseif condition="$vo['stuVol1'] eq 4"/><div style="width:680px;overflow: hidden;">化工装备技术</div>
-			            <else /> <div style="width:680px;overflow: hidden;">未填报</div>
+					<div style="width: 580px;overflow: hidden;">{$vo.stuS1}</div>
+					<div style="width: 580px;overflow: hidden;">{$vo.stuS2}</div>
+					<div style="width: 580px;overflow: hidden;">{$vo.stuS3}</div>
+					<div style="width: 580px;overflow: hidden;">{$vo.stuS4}</div>
+					<div style="width: 580px;overflow: hidden;">{$vo.stuS5}</div>
+					<div style="width: 840px;overflow: hidden;">{$vo.stuS6}</div>
+					<!-- <div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div> -->
+					<if condition="$vo['stuVol1'] eq 1"><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div>
+			            <elseif condition="$vo['stuVol1'] eq 2"/><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术</div>
+			            <elseif condition="$vo['stuVol1'] eq 3"/><div style="width:680px;overflow: hidden;height: 42px;">工业分析技术</div>
+			            <elseif condition="$vo['stuVol1'] eq 4"/><div style="width:680px;overflow: hidden;height: 42px;">化工装备技术</div>
+			            <else /> <div style="width:680px;overflow: hidden;height: 42px;">未填报</div>
 		            </if>
-					<if condition="$vo['stuVol2'] eq 1"><div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div>
-			            <elseif condition="$vo['stuVol2'] eq 2"/><div style="width:680px;overflow: hidden;">应用化工技术</div>
-			            <elseif condition="$vo['stuVol2'] eq 3"/><div style="width:680px;overflow: hidden;">工业分析技术</div>
-			            <elseif condition="$vo['stuVol2'] eq 4"/><div style="width:680px;overflow: hidden;">化工装备技术</div>
-			            <else /> <div style="width:680px;overflow: hidden;">未填报</div>
+					<if condition="$vo['stuVol2'] eq 1"><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div>
+			            <elseif condition="$vo['stuVol2'] eq 2"/><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术</div>
+			            <elseif condition="$vo['stuVol2'] eq 3"/><div style="width:680px;overflow: hidden;height: 42px;">工业分析技术</div>
+			            <elseif condition="$vo['stuVol2'] eq 4"/><div style="width:680px;overflow: hidden;height: 42px;">化工装备技术</div>
+			            <else /> <div style="width:680px;overflow: hidden;height: 42px;">未填报</div>
 		            </if>
-					<if condition="$vo['stuVol3'] eq 1"><div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div>
-			            <elseif condition="$vo['stuVol3'] eq 2"/><div style="width:680px;overflow: hidden;">应用化工技术</div>
-			            <elseif condition="$vo['stuVol3'] eq 3"/><div style="width:680px;overflow: hidden;">工业分析技术</div>
-			            <elseif condition="$vo['stuVol3'] eq 4"/><div style="width:680px;overflow: hidden;">化工装备技术</div>
-			            <else /> <div style="width:680px;overflow: hidden;">未填报</div>
+					<if condition="$vo['stuVol3'] eq 1"><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div>
+			            <elseif condition="$vo['stuVol3'] eq 2"/><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术</div>
+			            <elseif condition="$vo['stuVol3'] eq 3"/><div style="width:680px;overflow: hidden;height: 42px;">工业分析技术</div>
+			            <elseif condition="$vo['stuVol3'] eq 4"/><div style="width:680px;overflow: hidden;height: 42px;">化工装备技术</div>
+			            <else /> <div style="width:680px;overflow: hidden;height: 42px;">未填报</div>
 		            </if>
-					<if condition="$vo['stuVol4'] eq 1"><div style="width:680px;overflow: hidden;">应用化工技术（国际化）</div>
-			            <elseif condition="$vo['stuVol4'] eq 2"/><div style="width:680px;overflow: hidden;">应用化工技术</div>
-			            <elseif condition="$vo['stuVol4'] eq 3"/><div style="width:680px;overflow: hidden;">工业分析技术</div>
-			            <elseif condition="$vo['stuVol4'] eq 4"/><div style="width:680px;overflow: hidden;">化工装备技术</div>
-			            <else /> <div style="width:680px;overflow: hidden;">未填报</div>
+					<if condition="$vo['stuVol4'] eq 1"><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术（国际化）</div>
+			            <elseif condition="$vo['stuVol4'] eq 2"/><div style="width:680px;overflow: hidden;height: 42px;">应用化工技术</div>
+			            <elseif condition="$vo['stuVol4'] eq 3"/><div style="width:680px;overflow: hidden;height: 42px;">工业分析技术</div>
+			            <elseif condition="$vo['stuVol4'] eq 4"/><div style="width:680px;overflow: hidden;height: 42px;">化工装备技术</div>
+			            <else /> <div style="width:680px;overflow: hidden;height: 42px;">未填报</div>
 		            </if>
 					<div>{$vo.stuTot}</div>
 					<!-- <div>{$vo.stuAverage}</div> -->

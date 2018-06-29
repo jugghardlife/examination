@@ -106,7 +106,11 @@ class IndexController extends Controller {
         }
         $Stu = M('Stu');
         $map["stuNum"]=I("stuNum");
-        $data["stuPsw"]="123";
+        // $map["stuNum"]="20180726";
+        $stuOldPsw=$Stu->where($map)->find();
+        $data["stuPsw"]=$stuOldPsw["stuOldPsw"];
+        // dump($data);
+        // die();
         $res=$Stu->where($map)->save($data);
         $this->ajaxReturn($res, 'JSON');
     }
@@ -377,10 +381,19 @@ class IndexController extends Controller {
             // $item['stuVol4']=$sheet1->getCellByColumnAndRow(15,$i)->getValue(); 
             $item['stuTot']=$item['stuS1']+$item['stuS2']+$item['stuS3']+$item['stuS4']+$item['stuS5']+$item['stuS6'];  
             $item['stuAverage']=$item['stuTot']/6;  
-            // $item['consumption_total']=$sheet1->getCellByColumnAndRow(14,$i)->getValue();        
+            // $item['consumption_total']=$sheet1->getCellByColumnAndRow(14,$i)->getValue(); 
+            if($sheet1->getCellByColumnAndRow(15,$i)->getValue()){
+                $item['stuOldClass']=$sheet1->getCellByColumnAndRow(18,$i)->getValue();
+            }else{
+                $item['stuVol4']=0;
+            } 
+            $item['stuOldPsw']=$sheet1->getCellByColumnAndRow(3,$i)->getValue();
             $item['stuDate']=date("Y-m-d H:i:s");
             $data[]=$item;
-        }        
+        }   
+        // $str = var_export($data,TRUE);
+        // file_put_contents("1.php",$str);
+        // die();    
         $success=0;  
         $error=0;  
         $sum=count($data);  
@@ -794,15 +807,15 @@ class IndexController extends Controller {
     public function divide()
     {
         $Stu = M ('Stu');
-        $classPer=M("class");
+        $ClassP = M('class');
+        $ClassPer = $ClassP->select();
+        // dump($ClassPer);
+        // echo ;
+        // echo $ClassPer[1]["person"];
+        // echo $ClassPer[2]["person"];
+        // echo $ClassPer[3]["person"];
+        // die();
         $class0 = $Stu->where("stuClass=0")->order('stuAverage DESC')->select();
-        $classTotal=$classPer->select();
-        // dump($classTotal);
-        echo $classTotal["0"]["person"];
-        echo $classTotal["1"]["person"];
-        echo $classTotal["2"]["person"];
-        echo $classTotal["3"]["person"];
-        echo "<br/>";
         if(!$class0){
             return ;
         }
@@ -820,19 +833,51 @@ class IndexController extends Controller {
                     $tempLen=count($Stu->where("stuClass=1")->select());
                     $condition=$Stu->where("stuR=".$i." AND stuClass=0")->field("stuS1,stuR")->select();
                     if($condition[0]["stuS1"]>=75 && $condition[0]["stuR"]<=60){
-                        if($tempLen<24){
+                        if($tempLen<$ClassPer[0]["person"]){
                             $Stu->where("stuR=".$i." AND stuClass=0")->save($tempData);
                         }
                     }
                 }else if(2==$stuVol){
-                    echo "2";
+                    $tempData["stuClass"]=2;
+                    $tempLen=count($Stu->where("stuClass=2")->select());
+                    if($tempLen<$ClassPer[1]["person"]){
+                        $Stu->where("stuR=".$i." AND stuClass=0")->save($tempData);
+                    }
                 }else if(3==$stuVol){
-                    echo "3";
+                    $tempData["stuClass"]=3;
+                    $tempLen=count($Stu->where("stuClass=3")->select());
+                    if($tempLen<$ClassPer[2]["person"]){
+                        $Stu->where("stuR=".$i." AND stuClass=0")->save($tempData);
+                    }
                 }else if(4==$stuVol){
-                    echo "4";
+                    $tempData["stuClass"]=4;
+                    $tempLen=count($Stu->where("stuClass=4")->select());
+                    if($tempLen<$ClassPer[3]["person"]){
+                        $Stu->where("stuR=".$i." AND stuClass=0")->save($tempData);
+                    }
                 }
             }   
-            echo "<br/>";
+        }
+
+        $newClass0=$Stu->where("stuClass=0")->order('stuAverage DESC')->select();
+        $newClass0Len=count($Stu->where("stuClass=0")->order('stuAverage DESC')->select());
+        for($q=0;$q<$newClass0Len;$q++){
+            $tempLen2=count($Stu->where("stuClass=2")->select());
+            $tempLen3=count($Stu->where("stuClass=3")->select());
+            $tempLen4=count($Stu->where("stuClass=4")->select());
+            if($tempLen2<40){
+                $tempData["stuClass"]=2;
+                $Stu->where("stuR=".$newClass0[$q]["stuR"]." AND stuClass=0")->save($tempData);
+                continue ;
+            }else if($tempLen3<40){
+                $tempData["stuClass"]=3;
+                $Stu->where("stuR=".$newClass0[$q]["stuR"]." AND stuClass=0")->save($tempData);
+                continue ;
+            }else if($tempLen4<40){
+                $tempData["stuClass"]=4;
+                $Stu->where("stuR=".$newClass0[$q]["stuR"]." AND stuClass=0")->save($tempData);
+                continue ;
+            }
         }
     }
 
@@ -850,17 +895,5 @@ class IndexController extends Controller {
         }else{
             echo "error";
         }
-    }
-
-    public function changeClassIndex(){
-        $classPer=M("class");
-        $res=$classPer->select();
-        dump($res);
-        $this->assign('res',$res);
-        $this->display();
-    }
-
-    public function changeClassP(){
-
     }
 }
