@@ -38,7 +38,9 @@
 			</div> 
 			<div class="fill_content_middel">
 				<div class="fill_first">
+					<input type="hidden" value="{$stu.stuVol1}" class="fill_hidden_val1">
 					<div class="fill_vol_text">志愿A</div>
+					<if condition="$stu['stuVol1'] eq 0">
 					<div class="fill_vol_select">
 						<select class="fill_first_val">
 						  <option value ="1">应用化工技术（国际化）</option>
@@ -47,9 +49,20 @@
 						  <option value="4">化工装备技术</option>
 						</select>			
 					</div>
+					<else />
+						<div class="filled_first fllled_css">
+							<if condition="$stu['stuVol1'] eq 1"><span>应用化工技术（国际化）</span>
+			           				<elseif condition="$stu['stuVol1'] eq 2"/><span>应用化工技术</span>
+			           				<elseif condition="$stu['stuVol1'] eq 3"/><span>工业分析技术</span>
+			            				<else /> <span>化工装备技术</span>
+		            				</if>
+						</div>
+					</if>
 				</div>
 				<div class="fill_second">
+					<input type="hidden" value="{$stu.stuVol2}" class="fill_hidden_val2">
 					<div class="fill_vol_text">志愿B</div>
+					<if condition="$stu['stuVol2'] eq 0">
 					<div class="fill_vol_select">
 						<select class="fill_second_val">
 						  <option value ="1">应用化工技术（国际化）</option>
@@ -58,9 +71,21 @@
 						  <option value="4">化工装备技术</option>
 						</select>			
 					</div>
+					<else />
+						<div class="filled_second fllled_css">
+							<if condition="$stu['stuVol2'] eq 1"><span>应用化工技术（国际化）</span>
+			           				<elseif condition="$stu['stuVol2'] eq 2"/><span>应用化工技术</span>
+			           				<elseif condition="$stu['stuVol2'] eq 3"/><span>工业分析技术</span>
+			            				<else /> <span>化工装备技术</span>
+		            				</if>
+						</div>
+					</if>
+
 				</div>
 				<div class="fill_third">
+					<input type="hidden" value="{$stu.stuVol3}" class="fill_hidden_val3">
 					<div class="fill_vol_text">志愿C</div>
+					<if condition="$stu['stuVol3'] eq 0">
 					<div class="fill_vol_select">
 						<select class="fill_third_val">
 						  <option value ="1">应用化工技术（国际化）</option>
@@ -69,9 +94,20 @@
 						  <option value="4">化工装备技术</option>
 						</select>			
 					</div>
+					<else />
+						<div class="filled_third fllled_css">
+							<if condition="$stu['stuVol3'] eq 1"><span>应用化工技术（国际化）</span>
+			           				<elseif condition="$stu['stuVol3'] eq 2"/><span>应用化工技术</span>
+			           				<elseif condition="$stu['stuVol3'] eq 3"/><span>工业分析技术</span>
+			            				<else /> <span>化工装备技术</span>
+		            				</if>
+						</div>
+					</if>
 				</div>
 				<div class="fill_fourth">
+					<input type="hidden" value="{$stu.stuVol4}" class="fill_hidden_val4">
 					<div class="fill_vol_text">志愿D</div>
+					<if condition="$stu['stuVol4'] eq 0">
 					<div class="fill_vol_select">
 						<select class="fill_fourth_val">
 						  <option value ="1">应用化工技术（国际化）</option>
@@ -80,12 +116,21 @@
 						  <option value="4">化工装备技术</option>
 						</select>			
 					</div>
+					<else />
+						<div class="filled_fourth fllled_css">
+							<if condition="$stu['stuVol4'] eq 1"><span>应用化工技术（国际化）</span>
+			           				<elseif condition="$stu['stuVol4'] eq 2"/><span>应用化工技术</span>
+			           				<elseif condition="$stu['stuVol4'] eq 3"/><span>工业分析技术</span>
+			            				<else /> <span>化工装备技术</span>
+		            				</if>
+						</div>
+					</if>
 				</div>
 			</div>
 			<div class="fill_content_bottom">
 				<!-- <div><button>修改</button></div> -->
-				<div class="fill_submit"><button>提 交</button></div>
-				<div class="fill_cancel" onClick="javascript :history.back(-1);"><button>取 消</button></div>
+				<div class="fill_submit"><button style="height:50px;">提 交</button></div>
+				<div class="fill_cancel" onClick="javascript :history.back(-1);"><button style="height:50px;">取 消</button></div>
 			</div>
 		</div>
 	</div>
@@ -109,12 +154,14 @@
 		}
 	</script>
 	<script>
+	if($(".fill_hidden_val1").val()==0 && $(".fill_hidden_val2").val()==0 && $(".fill_hidden_val3").val()==0 && $(".fill_hidden_val4").val()==0){
 		$(".fill_submit").find("button").click(function(){
 			// if($(".fill_class").find("span").html()!="未填报"){
 			// 	alert("已分班");
 			// 	return;
 			// }
 			var arr=[$(".fill_first_val").val(),$(".fill_second_val").val(),$(".fill_third_val").val(),$(".fill_fourth_val").val()];
+			console.log(arr)
 			for(var i =0;i<arr.length;i++){
 				for(var j=i+1;j<arr.length;j++){
 					if(arr[i]==arr[j]){
@@ -152,6 +199,12 @@
 				}
 			})
 		})
+	}else {
+		$(".fill_submit").find("button").css("background-color","#9E9696");
+		$(".fill_submit").find("button").click(function(){
+			alert("已经填报志愿")	
+		})
+	}
 	</script>
 </body>
 </html>

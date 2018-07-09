@@ -54,6 +54,7 @@ class StuController extends Controller {
         // $str = var_export($res,TRUE);
         // file_put_contents("1.php",$str);
         // die(); 
+	//dump($res);
         $this->assign('stu',$res);
         $this->display();
     }

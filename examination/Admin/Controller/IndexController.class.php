@@ -810,7 +810,7 @@ class IndexController extends Controller {
         $ClassP = M('class');
         $ClassPer = $ClassP->select();
         // dump($ClassPer);
-        // echo ;
+        // echo $ClassPer[0]["person"];
         // echo $ClassPer[1]["person"];
         // echo $ClassPer[2]["person"];
         // echo $ClassPer[3]["person"];
@@ -865,15 +865,15 @@ class IndexController extends Controller {
             $tempLen2=count($Stu->where("stuClass=2")->select());
             $tempLen3=count($Stu->where("stuClass=3")->select());
             $tempLen4=count($Stu->where("stuClass=4")->select());
-            if($tempLen2<40){
+            if($tempLen2<$ClassPer[1]["person"]){
                 $tempData["stuClass"]=2;
                 $Stu->where("stuR=".$newClass0[$q]["stuR"]." AND stuClass=0")->save($tempData);
                 continue ;
-            }else if($tempLen3<40){
+            }else if($tempLen3<$ClassPer[2]["person"]){
                 $tempData["stuClass"]=3;
                 $Stu->where("stuR=".$newClass0[$q]["stuR"]." AND stuClass=0")->save($tempData);
                 continue ;
-            }else if($tempLen4<40){
+            }else if($tempLen4<$ClassPer[3]["person"]){
                 $tempData["stuClass"]=4;
                 $Stu->where("stuR=".$newClass0[$q]["stuR"]." AND stuClass=0")->save($tempData);
                 continue ;
@@ -895,5 +895,41 @@ class IndexController extends Controller {
         }else{
             echo "error";
         }
+    }
+
+    public function changeClassPerson()
+    {   
+        $classPer=M("class");
+        $res=$classPer->select();
+        $this->assign('res',$res);
+        $this->display();
+    }
+
+    public function changeClassP()
+    {   
+        $classPer=M("class");
+	$stu = M ('Stu');
+        $map1["id"]=I("class1");
+        $map2["id"]=I("class2");
+        $map3["id"]=I("class3");
+        $map4["id"]=I("class4");
+        $data1["person"]=I("class_p1_val");
+        $data2["person"]=I("class_p2_val");
+        $data3["person"]=I("class_p3_val");
+        $data4["person"]=I("class_p4_val");
+        $res1=$classPer->where($map1)->save($data1);
+        $res2=$classPer->where($map2)->save($data2);
+        $res3=$classPer->where($map3)->save($data3);
+        $res4=$classPer->where($map4)->save($data4);
+	$stuLen=count($stu->select());
+	$data["stuClass"]=0;
+	for($i=1;$i<($stuLen+1);$i++){
+		$stu->where("stuR=".$i)->save($data);
+	}
+	//echo "suecess";
+	$this->success('修改成功');
+        // $str = var_export($data,TRUE);
+        // file_put_contents("1.php",$str);
+        // die();    
     }
 }

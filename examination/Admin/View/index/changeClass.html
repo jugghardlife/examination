@@ -46,6 +46,7 @@
 			<div class="stuScore_del_sub">
 				<button>删除</button>
 			</div>
+			<input type="hidden">
 			<div class="stuScore_del_can">
 				<button>取消</button>
 			</div>
@@ -84,10 +85,10 @@
 			<div class="top_back">
 				<div></div>
 				<div class="stuScore_adminsScore">
-					<a href="{:U('Admin/index/expClass?stuClass=1')}" class="expClass">修改分班</a>
+					<a href="{:U('Admin/index/changeClassPerson')}">修改分班</a>
 					<a href="{:U('Admin/index/expClass?stuClass=1')}" class="expClass">导出班級数据</a>
 					<a href="{:U('Index/addStudentA')}">新增</a>
-					<a onClick="javascript :history.back(-1);">返回</a>
+					<a href="{:U('Admin/index/adminChoose')}">返回</a>
 				</div>
 			</div>
 			<div class="stuScore_content_top">
@@ -400,8 +401,8 @@
 			            				"<option value ='1' class='class1'>应用化工技术（国际化）</option>"+
 			            				"<option value ='2' class='class2'>化工2</option>"+
 			            				"<option value ='3' class='class3'>工分1</option>"+
-			            				"<option value ='4' class='class4'>工分2</option>"+
-			            				"<option value ='5' class='class5'>装备1</option>"+
+			            				"<option value ='4' class='class4'>装备1</option>"+
+			            				"<option value ='0' class='class5'>未分班</option>"+
 			            			"</select>"+
 			            		"</div>"+
 			            		"<div class='see_content_top_last'>排名:<span>"+data.stuR+"</span></div>"
